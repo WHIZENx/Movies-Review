@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg {{nav_class}}" style="box-shadow:0px 10px 5px rgba(0,0,0,0.5)">
+  <img routerLink="" style="width:10%px;height:10%;outline:0" class="navbar-brand" alt="" src="https://i.pinimg.com/originals/1f/82/c9/1f82c992767ce8aeb6ef8b84a81a0eb2.gif">
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="icon-bar top-bar"></span>
+    <span class="icon-bar middle-bar"></span>
+    <span class="icon-bar bottom-bar"></span>				
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink=""><i class="fa fa-home"></i> {{home_lang}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="review" *ngIf="isLoggedIn && status != 'Ban' && level == 'Premium'"><i class="fas fa-pencil-alt"></i> {{write_lang}}</a>
+        <a class="nav-link" routerLink="review" *ngIf="isLoggedIn && status != 'Ban' && level == 'Admin'"><i class="fas fa-pencil-alt"></i> {{write_lang}}</a>
+        <a class="nav-link" *ngIf="isLoggedIn && status != 'Ban' && level == 'Normal'"><i class="fas fa-pencil-alt"></i> {{write_lang}} (<i style="margin-right:5px;color:#2ebcef;" class="fas fa-gem"></i><span style="color:#2ebcef;">Premium Only*</span>)</a>
+        <a class="nav-link" *ngIf="isLoggedIn && status != 'Ban' && level == 'Gold'"><i class="fas fa-pencil-alt"></i> {{write_lang}} (<i style="margin-right:5px;color:#2ebcef;" class="fas fa-gem"></i><span style="color:#2ebcef;">Premium Only*</span>)</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav d-flex align-items-center">
+      <li class="nav-item">
+        <button class="btn btn-outline-success" *ngIf="!isLoggedIn" routerLink="login" style="margin-right:10px;"><i class="fa fa-user"></i><b> {{login_lang}}</b></button>
+        <div class="btn-group" *ngIf="isLoggedIn" style="margin-right:10px;">
+          <button type="button" class="btn btn-outline-primary active"><b>{{welcome_lang}}: <i [title]="'VIP'" *ngIf="isVip" class="fas fa-crown" style="color:gold;-webkit-text-stroke: 1px black;"></i> {{username}}</b></button>
+          <button type="button" class="btn btn-outline-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Users Dropdown</span>
+          </button>
+          <div class="dropdown-menu {{str_dark}}">
+            <label class="dropdown-item {{str_dark}}" style="cursor:pointer" [routerLink]="['/profile', username]"><i class="fa fa-user-circle"></i> {{profile_lang}}</label>
+            <label class="dropdown-item {{str_dark}}" *ngIf="level == 'Admin'" style="cursor:pointer" routerLink="admin"><i class="fa fa-wrench"></i> {{admin_lang}}</label>
+            <div class="dropdown-divider"></div>
+            <label class="dropdown-item {{str_dark}}" style="cursor:pointer;color:red;" (click)="logout()"><i class="fas fa-sign-out-alt"></i><b> {{logout_lang}}</b></label>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-outline-secondary" style="margin-right:10px;" [title]="'Change language ENG/THA'" (click)="changelang()"><img style="width:25px;height:25px;" src={{flag_lang}} alt="">
+        <b style="margin-left:5px">{{text_lang}}</b>
+        </button>
+        <b class={{str_dark}} style="font-size:18px;margin-right:10px;transition: 0.5s ease-in-out;"><i class="fa fa-clock"></i> {{ time | date:"HH:mm:ss" }}</b>
+        <img class={{str_dark}} (click)="changetheme()" [title]="'Toggle light/dark theme'" alt="">
+      </li>
+    </ul>
+  </div>
+</nav>

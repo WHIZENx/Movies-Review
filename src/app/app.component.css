@@ -1,0 +1,116 @@
+.dark {
+  transition: 0.5s ease-in-out;
+  background-color:rgb(30, 30, 30);
+}
+
+.light {
+  transition: 0.5s ease-in-out;
+  background-color: white;
+}
+
+.footer {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  color: white;
+  background-color:rgba(255, 98, 71, 0.9);
+  width:100%;
+  height:40px;
+  padding: 8px;
+}
+
+a {
+  color:blue;
+  text-decoration-line: underline;
+  cursor:pointer;
+}
+
+a:hover {
+  color:blueviolet;
+  text-decoration-line: underline;
+  cursor:pointer;
+}
+
+h5[class~="light"] {
+  color: black;
+}
+
+h5[class~="dark"] {
+  color: white;
+}
+
+label {
+  transition: 0.5s ease-in-out;
+}
+
+label[class~="light"] {
+  color: black;
+}
+
+label[class~="dark"] {
+  color: white;
+}
+
+textarea[class~="light"] {
+  color:black;
+  background-color:white;
+}
+
+textarea[class~="dark"] {
+  color: white;
+  background-color:rgb(70,70,70);
+}
+
+/* Iphone less 5/SE */
+@media (max-width: 320px) {
+  
+  .body {
+    padding-top: 64px;
+  }
+
+  .footer {
+    font-size:10px;
+  }
+}
+
+/* Iphone 6/7/8 and Iphone 6/7/8 Pro */
+@media (min-width: 321px) and (max-width: 415px) {
+
+  .body {
+    padding-top: 64px;
+  }
+
+  .footer {
+    font-size:12px;
+  }
+}
+
+/* Iphone 6/7/8 and Iphone 6/7/8 Pro Landscape */
+@media (min-width: 416px) and (max-width: 767.8px) {
+  .body {
+    padding-top: 64px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .body {
+    padding-top: 64px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .body {
+    padding-top: 66px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1919.98px) {
+  .body {
+    padding-top: 66px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .body {
+    padding-top: 66px;
+  }
+}

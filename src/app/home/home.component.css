@@ -1,0 +1,735 @@
+/* Iphone 5/SE */
+@media (max-width: 320px) {
+  .center {
+    width: 80%;
+    height: 100%;
+  }
+
+  .cinema {
+    left:5%;
+    font-size: 20px;
+  }
+
+  #movie {
+    margin-left:10.5px;
+  }
+
+  #bg_img {
+    content: url('https://firebasestorage.googleapis.com/v0/b/moviereview-cmu.appspot.com/o/home%2FDTvUQor.jpg?alt=media&token=6f9f1b58-c6bf-43b5-8c6e-6779fab60473');
+  }
+
+  #chiar {
+    width:250px;
+    left:3%;
+  }
+
+  #popcorn {
+    width:250px;
+    left:17.8%;
+  }
+
+  #meow {
+    width:22%;
+    left:12%;
+  }
+
+  #banner {
+    margin-top:380px;
+  }
+
+  #footer {
+    height:80px;
+  }
+
+  #carouselHot {
+    margin-top:5px;
+    width:180px;
+    height:280px;
+  }
+
+  #hod_img {
+    width:180px;
+    height:280px;
+  }
+}
+
+/* Iphone 6/7/8 */
+@media (min-width: 321px) and (max-width: 375px) {
+  .center {
+    width: 80%;
+    height: 100%;
+  }
+
+  .cinema {
+    left:5%;
+    font-size: 25px;
+  }
+
+  #movie {
+    margin-left:10.5px;
+  }
+
+  #bg_img {
+    content: url('https://firebasestorage.googleapis.com/v0/b/moviereview-cmu.appspot.com/o/home%2FDTvUQor.jpg?alt=media&token=6f9f1b58-c6bf-43b5-8c6e-6779fab60473');
+  }
+
+  #chiar {
+    width:250px;
+    left:6%;
+  }
+
+  #popcorn {
+    width:250px;
+    left:17.8%;
+  }
+
+  #meow {
+    width:21%;
+    left:12.5%;
+  }
+
+  #banner {
+    margin-top:380px;
+  }
+
+  #footer {
+    height:80px;
+  }
+
+  #carouselHot {
+    margin-top:7px;
+    width:210px;
+    height:300px;
+  }
+
+  #hot_img {
+    width:210px;
+    height:300px;
+  }
+}
+
+/* Iphone 6/7/8 Pro */
+@media (min-width: 376px) and (max-width: 567px) {
+  .center {
+    width: 80%;
+    height: 100%;
+  }
+
+  .cinema {
+    left:7%;
+    font-size: 25px;
+  }
+
+  #movie {
+    margin-left:10.5px;
+  }
+
+  #bg_img {
+    content: url('https://firebasestorage.googleapis.com/v0/b/moviereview-cmu.appspot.com/o/home%2FDTvUQor.jpg?alt=media&token=6f9f1b58-c6bf-43b5-8c6e-6779fab60473');
+  }
+
+  #chiar {
+    width:250px;
+    left:7%;
+  }
+
+  #popcorn {
+    width:250px;
+    left:18.8%;
+  }
+
+  #meow {
+    width:20%;
+    left:12.5%;
+  }
+
+  #banner {
+    margin-top:380px;
+  }
+
+  #footer {
+    height:80px;
+  }
+
+  #carouselHot {
+    margin-top:8px;
+    width:210px;
+    height:300px;
+  }
+
+  #hot_img {
+    width:210px;
+    height:300px;
+  }
+}
+
+/* Iphone 5/SE Landscape */
+@media (min-width: 567.1px) and (max-width: 598.8px) {
+  .center {
+    width: 80%;
+    height: 100%;
+  }
+
+  .cinema {
+    left:75%;
+    font-size: 20px;
+  }
+
+  #movie {
+    margin-left:12.5px;
+  }
+
+  #bg_img {
+    content: url('https://firebasestorage.googleapis.com/v0/b/moviereview-cmu.appspot.com/o/home%2FQukrA8.png?alt=media&token=0a4d58bd-1655-4794-8e57-2c6fb71ef522');
+  }
+
+  #chiar {
+    width:240px;
+    left:76%;
+  }
+
+  #popcorn {
+    width:240px;
+    left:84%;
+  }
+
+  #meow {
+    width:13%;
+    left:80%;
+  }
+
+  #banner {
+    margin-top:360px;
+  }
+
+  #footer {
+    height:60px;
+  }
+
+  #carouselHot {
+    width:210px;
+    height:300px;
+  }
+
+  #hot_img {
+    width:210px;
+    height:300px;
+  }
+}
+
+/* Iphone 6/7/8 and Iphone 6/7/8 Pro Landscape */
+@media (min-width: 599px) and (max-width: 767.8px) {
+  .center {
+    width: 80%;
+    height: 100%;
+  }
+
+  .cinema {
+    left:69%;
+    font-size: 30px;
+  }
+
+  #movie {
+    margin-left:12.5px;
+  }
+
+  #bg_img {
+    content: url('https://firebasestorage.googleapis.com/v0/b/moviereview-cmu.appspot.com/o/home%2FQukrA8.png?alt=media&token=0a4d58bd-1655-4794-8e57-2c6fb71ef522');
+  }
+
+  #chiar {
+    width:240px;
+    left:79%;
+  }
+
+  #popcorn {
+    width:240px;
+    left:85.8%;
+  }
+
+  #meow {
+    width:10.5%;
+    left:82%;
+  }
+
+  #banner {
+    margin-top:360px;
+  }
+
+  #footer {
+    height:60px;
+  }
+
+  #carouselHot {
+    width:210px;
+    height:300px;
+  }
+
+  #hot_img {
+    width:210px;
+    height:300px;
+  }
+}
+/* Ipad */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .center {
+    width: 70%;
+    height: 100%;
+  }
+
+  .cinema {
+    left:65.3%;
+    font-size: 35px;
+  }
+
+  #movie {
+    margin-left:22.5px;
+  }
+
+  #bg_img {
+    content: url('https://firebasestorage.googleapis.com/v0/b/moviereview-cmu.appspot.com/o/home%2FQukrA8.png?alt=media&token=0a4d58bd-1655-4794-8e57-2c6fb71ef522');
+  }
+
+  #chiar {
+    width:240px;
+    left:80%;
+  }
+
+  #popcorn {
+    width:240px;
+    left:85.8%;
+  }
+
+  #meow {
+    width:10%;
+    left:82.5%;
+  }
+
+  #banner {
+    margin-top:365px;
+  }
+
+  #footer {
+    height:65px;
+  }
+
+  #carouselHot {
+    width:210px;
+    height:300px;
+  }
+
+  #hot_img {
+    width:210px;
+    height:300px;
+  }
+}
+/* Ipad Pro */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .center {
+    width: 60%;
+    height: 100%;
+  }
+
+  .cinema {
+    left:59.3%;
+    font-size: 45px;
+  }
+
+  #movie {
+    margin-left:22.5px;
+  }
+
+  #bg_img {
+    content: url('https://firebasestorage.googleapis.com/v0/b/moviereview-cmu.appspot.com/o/home%2FQukrA8.png?alt=media&token=0a4d58bd-1655-4794-8e57-2c6fb71ef522');
+  }
+
+  #chiar {
+    width:240px;
+    left:80%;
+  }
+
+  #popcorn {
+    width:240px;
+    left:84.8%;
+  }
+
+  #meow {
+    width:8%;
+    left:82%;
+  }
+
+  #banner {
+    margin-top:380px;
+  }
+
+  #footer {
+    height:80px;
+  }
+
+  #carouselHot {
+    width:210px;
+    height:300px;
+  }
+
+  #hot_img {
+    width:210px;
+    height:300px;
+  }
+}
+/* 100 */
+@media (min-width: 1200px) and (max-width: 1919.98px) {
+  .center {
+    width: 50%;
+    height: 100%;
+  }
+
+  .cinema {
+    left:56.3%;
+    font-size: 70px;
+  }
+
+  #movie {
+    margin-left:22.5px;
+  }
+
+  #bg_img {
+    content: url('https://firebasestorage.googleapis.com/v0/b/moviereview-cmu.appspot.com/o/home%2FQukrA8.png?alt=media&token=0a4d58bd-1655-4794-8e57-2c6fb71ef522');
+  }
+
+  #chiar {
+    left:80%;
+  }
+
+  #popcorn {
+    left:84.8%;
+  }
+
+  #meow {
+    width:7%;
+    left:81.5%;
+  }
+
+  #banner {
+    margin-top:380px;
+  }
+
+  #footer {
+    height:80px;
+  }
+
+  #carouselHot {
+    width:210px;
+    height:300px;
+  }
+
+  #hot_img {
+    width:210px;
+    height:300px;
+  }
+}
+/* 80 */
+@media (min-width: 1920px) {
+  .center {
+    width: 50%;
+    height: 100%;
+  }
+
+  .cinema {
+    left:56.3%;
+    font-size: 70px;
+  }
+
+  #movie {
+    margin-left:22.5px;
+  }
+
+  #bg_img {
+    content: url('https://firebasestorage.googleapis.com/v0/b/moviereview-cmu.appspot.com/o/home%2FQukrA8.png?alt=media&token=0a4d58bd-1655-4794-8e57-2c6fb71ef522');
+  }
+
+  #chiar {
+    left:80%;
+  }
+
+  #popcorn {
+    left:84.8%;
+  }
+
+  #meow {
+    width:7%;
+    left:81.5%;
+  }
+
+  #banner {
+    margin-top:380px;
+  }
+
+  #footer {
+    height:80px;
+  }
+
+  #carouselHot {
+    width:210px;
+    height:300px;
+  }
+
+  #hot_img {
+    width:210px;
+    height:300px;
+  }
+}
+
+.mat-tab-label {
+    color: black;
+    min-width: 0 !important;
+    width: 7% !important;
+}
+
+.mat-tab:active {
+    animation: fadein 0.8s;
+}
+
+a {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.center {
+  max-height: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+}
+
+#hot-card {
+  -webkit-filter: drop-shadow(0px 0px 5px #ffd700);
+  filter: drop-shadow(0px 0px 5px #ffd700);
+}
+
+.caption {
+  position:absolute;
+  top:0;
+  right:0;
+  background:rgba(66, 139, 202, 0.75);
+  width:100%;
+  height:100%;
+  padding:2%;
+  display: none;
+  text-align:center;
+  color:#fff !important;
+  z-index:2;
+}
+
+.icon-bar {
+	width: 22px; 
+	height: 2px;
+	background-color: rgb(0, 50, 255);
+	display: block;
+	transition: all 0.2s;
+	margin-top: 4px;
+}
+ 
+.navbar-toggler {
+  outline: none;
+  border: none;
+  background: transparent !important;
+}
+
+.navbar-toggler .top-bar {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+ 
+.navbar-toggler .middle-bar {
+  opacity: 0;
+}
+ 
+.navbar-toggler .bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+ 
+.navbar-toggler.collapsed .top-bar {
+  transform: rotate(0);
+}
+ 
+.navbar-toggler.collapsed .middle-bar {
+  opacity: 1;
+}
+ 
+.navbar-toggler.collapsed .bottom-bar {
+  transform: rotate(0);
+}
+
+#des_text {
+    opacity: 0;
+    transition: all .2s ease-in-out;
+}
+
+#hot-bg-card {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all .2s ease-in-out;
+}
+
+#card:hover #des_text {
+    opacity: 1;
+}
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: inline-block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+* {
+  outline: 0;
+}
+
+div[class~="a"] {
+  animation: fadein 0.8s;
+}
+
+.carousel-inner > .item > img {
+  margin: 0 auto;
+}
+
+.box {
+  animation-duration: 2s;
+  animation-iteration-count: 10;
+  height: 20%;
+  margin: 0 auto 0 auto;
+  transform-origin: bottom;
+  width: 20%;
+}
+
+.jump {
+  opacity: 0;
+  top:245px;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-name: bounce-1;
+  animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+}
+
+.bounce-7 {
+  animation-name: bounce-7;
+  animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+}
+
+@keyframes bounce-1 {
+  to   { opacity: 1; }
+  0%   { transform: scale(1,1)      translateY(0); }
+  10%  { transform: scale(1.1,.9)   translateY(0); }
+  30%  { transform: scale(.9,1.1)   translateY(-90px); }
+  50%  { transform: scale(1.05,.95) translateY(-80px); }
+  57%  { transform: scale(1,1)      translateY(-80px); }
+  64%  { transform: scale(1,1)      translateY(-80px); }
+  100% { transform: scale(1,1)      translateY(-80px); }
+  from { opacity: 1; }
+}
+
+@keyframes bounce-7 {
+  0%   { transform: scale(1,1)      translateY(0); }
+  10%  { transform: scale(1.1,.9)   translateY(0); }
+  30%  { transform: scale(.9,1.1)   translateY(-30px); }
+  50%  { transform: scale(1.05,.95) translateY(0); }
+  57%  { transform: scale(1,1)      translateY(-7px); }
+  64%  { transform: scale(1,1)      translateY(0); }
+  100% { transform: scale(1,1)      translateY(0); }
+}
+
+.slide-left {
+    position: absolute;
+    left: -100px;
+    width: 100px;
+    height: 100px;
+    -webkit-animation: slide-left 1s forwards;
+    animation: slide-left 1s forwards;
+}
+
+@-webkit-keyframes slide-left {
+    100% { left: 0; }
+}
+
+@keyframes slide-left {
+    100% { left: 0; }
+}
+
+.slide-right {
+    position: absolute;
+    right: -100px;
+    width: 100px;
+    height: 100px;
+    -webkit-animation: slide-right 1s forwards;
+    animation: slide-right 1s forwards;
+}
+
+@-webkit-keyframes slide-right {
+    100% { right: 0; }
+}
+
+@keyframes slide-right {
+    100% { right: 0; }
+}
+
+@keyframes fadein {
+    0% { opacity: 0; }
+    100%   { opacity: 1; }
+}
+
+.cinema {
+  padding: 10px;
+  font-family: 'Monoton', cursive;
+  text-transform: uppercase;
+  text-shadow: 0 0 80px red,0 0 30px FireBrick,0 0 6px DarkRed;
+  color: red;
+}
+.cinema p { margin:0; }
+#movie:hover { text-shadow: 0 0 200px #ffffff,0 0 80px #008000,0 0 6px #0000ff; }
+#review:hover { text-shadow: 0 0 100px red,0 0 40px FireBrick,0 0 8px DarkRed; }
+#movie {
+  color: #fff;
+  text-shadow: 0 0 80px #ffffff,0 0 30px #008000,0 0 6px #0000ff;
+}
+#movie span {
+  animation: upper 11s linear infinite;
+}
+#review span {
+  animation: lower 10s linear infinite;
+}
+@keyframes upper {
+  0%,19.999%,22%,62.999%,64%, 64.999%,70%,100% {
+    opacity:.99; text-shadow: 0 0 80px #ffffff,0 0 30px #008000,0 0 6px #0000ff;
+  }
+  20%,21.999%,63%,63.999%,65%,69.999% {
+    opacity:0.4; text-shadow: none; 
+  }
+}
+@keyframes lower {
+  0%,12%,18.999%,23%,31.999%,37%,44.999%,46%,49.999%,51%,58.999%,61%,68.999%,71%,85.999%,96%,100% {
+    opacity:0.99; text-shadow: 0 0 80px red,0 0 30px FireBrick,0 0 6px DarkRed;
+  }
+  19%,22.99%,32%,36.999%,45%,45.999%,50%,50.99%,59%,60.999%,69%,70.999%,86%,95.999% { 
+    opacity:0.4; text-shadow: none; 
+  }
+}
+
+#text_name {
+  font-weight: bold;
+  color:white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

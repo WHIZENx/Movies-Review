@@ -1,0 +1,119 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="solid {{str_dark}}" align="center">
+      <img *ngIf="choose_op == 2" src={{link_str}} alt="">
+      <div class="avatar-upload" *ngIf="choose_op == 1">
+        <div class="avatar-preview">
+          <div id="imagePreview" [style.backgroundImage]="'url('+ imageUrl +')'"></div>
+        </div>
+      </div>
+    </div>
+    <div class="ridge {{str_dark}}">
+      <h1 class="card-subtitle h1 {{str_dark}}">{{review_lang}}</h1>
+      <hr class={{str_dark}}>
+      <h2 class={{str_dark}}>{{op_lang}}</h2>
+      <div style="padding-left:20px;padding-right:20px;">
+        <form [formGroup]="postForm" (ngSubmit)="onSubmitPost(htmlContent)">
+          <form class="form-inline">
+            <div class="form-check" style="margin-right:10px;">
+              <input class="form-check-input" type="radio" name="Radios" id="upload" value="option1" checked (click)="changeOption()">
+              <label class="form-check-label {{str_dark}}" for="upload">
+                {{c_op_lang}}
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="Radios" id="linkurl" value="option2" (click)="changeOption()">
+              <label class="form-check-label {{str_dark}}" for="linkurl">
+                {{img_lang}}
+              </label>
+            </div>
+          </form>
+          <div *ngIf="choose_op == 1">
+            <div class="form-group" style="margin-top:15px;">
+              <div class="custom-file">
+                <button type="button" class="btn btn-danger btn-md" (click)="fileInput.click()">{{u_lang}}</button>
+              </div>
+              <label *ngIf="imgName != ''" class={{str_dark}} style="margin-left:10px;margin-top:10px;word-wrap:break-word;width:100%">{{imgName}}</label>
+              <div class="avatar-upload">
+                <div class="avatar-edit">
+                  <input type='file' id="imageUpload" accept="image/*" #fileInput (change)="uploadFile($event)" required/>
+                  <div *ngIf="submitted" class="invalid-feedback">
+                    {{r_name_lang}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group" *ngIf="choose_op == 2">
+            <label for="link" class={{str_dark}}>{{img_lang}}:</label>
+            <input #link type="url" class="form-control {{str_dark}}" placeholder="" [ngModel]="get_link(link.value)" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group">
+            <label for="name" class={{str_dark}}>{{name_lang}}:</label>
+            <small style="color:orangered;"> ({{notic_lang}} <i class="fas fa-crown" style="color:gold;-webkit-text-stroke:1px black;"></i> {{notic2_lang}})</small>
+            <input #name type="text" class="form-control {{str_dark}}" formControlName="name" placeholder="" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" required>
+            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                <div *ngIf="f.name.errors.required">{{r_name_lang}}!</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="desc" class={{str_dark}}>{{des_lang}}:</label>
+            <small style="color:orangered;"> ({{notic3_lang}} <i class="fas fa-font"></i>)</small>
+            <angular-editor class="{{str_dark}}" formControlName="desc" [(ngModel)]="htmlContent" [config]="config" [ngClass]="{ 'is-invalid': submitted && f.desc.errors }" required></angular-editor>
+            <div *ngIf="submitted && f.desc.errors" class="invalid-feedback">
+                <div *ngIf="f.desc.errors.required">{{r_des_lang}}!</div>
+            </div>
+          </div>
+          <div class="btn-group" style="display:block;">
+            <div class="form-group">
+              <div class="card-footer {{str_dark}}" style="overflow-x:auto;">
+                <div class="card-group text-danger">
+                  <div class="row">
+                    <div class="col-16" style="padding-right:10px;">
+                      <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><b>{{genre_lang}}:</b><span class="caret"></span></button>
+                      <ul class="dropdown-menu scrollable-menu" role="menu">
+                        <li *ngFor="let i of genres">
+                          <a type="button" class="dropdown-item" (click)="addGenre(list_genre, i)">{{i}}</a>
+                        </li>
+                      </ul>
+                      <div *ngFor="let i of list_genre" class="d-flex align-items-center">
+                        <div class="card text-info" style="padding-left:10px;padding-right:10px;margin-left:10px;">
+                          {{ i }}
+                        </div>
+                        <button type="button" class="close" aria-label="Close" style="color:red;outline:none;">
+                          <span aria-hidden="true" (click)="deleteGenre(list_genre, i)">&times;</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="loading && choose_op == 1">
+            <div *ngIf="percentage | async as pct">
+              <progress [value]="pct" max="100"></progress>
+              <label class={{str_dark}}>{{ pct | number }}%</label>
+            </div>
+            <div *ngIf="snapshot | async as snap">
+              <div *ngIf="downloadURL as url">
+              </div> 
+            </div>
+          </div>
+          <div id="mobile">
+            <a class="btn btn-danger text-white" (click)=clearText()><i class="fa fa-times"></i> {{clear_lang}}</a>
+            <div>
+              <mat-progress-spinner *ngIf="loading" color="warn" mode="indeterminate" diameter="40" style="margin-top:10px;"></mat-progress-spinner>
+              <button *ngIf="!loading" class="btn btn-success" style="margin-top: 10px;"><i class="fa fa-paper-plane"></i> {{post_lang}}!</button>
+            </div>
+          </div>
+          <div style="float: right;" id="another">
+            <a class="btn btn-danger text-white" (click)=clearText()><i class="fa fa-times"></i> {{clear_lang}}</a>
+            <mat-progress-spinner *ngIf="loading" color="warn" mode="indeterminate" diameter="40" style="margin-left:10px;display:inline-block;"></mat-progress-spinner>
+            <button *ngIf="!loading" class="btn btn-success" style="margin-left: 10px;"><i class="fa fa-paper-plane"></i> {{post_lang}}!</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

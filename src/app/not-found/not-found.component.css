@@ -1,0 +1,56 @@
+/* Iphone less 8 */
+@media (max-width: 767.8px) {
+
+  #img_not_found {
+    width:50%;
+    height:50%;
+  }
+}
+/* 175% */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+  #img_not_found {
+    width:40%;
+    height:40%;
+  }
+}
+/* 150% */
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+
+  #img_not_found {
+    width:37%;
+    height:37%;
+  }
+}
+/* 100% */
+@media (min-width: 1200px) and (max-width: 1919.98px) {
+
+  #img_not_found {
+    width:35%;
+    height:35%;
+  }
+}
+
+/* 80% */
+@media (min-width: 1920px) {
+  
+  #img_not_found {
+    width:35%;
+    height:35%;
+  }
+}
+
+#not_found {
+  padding: 10px;
+  font-size: 20px;
+  font-family: monospace;
+  transition: 0.5s ease-in-out;
+}
+
+#not_found[class~="light"] {
+  color: black;
+}
+
+#not_found[class~="dark"] {
+  color: white;
+}

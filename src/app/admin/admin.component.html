@@ -1,0 +1,192 @@
+<div *ngIf="isLoggedIn == false || error && loading == true">
+  <div class="container-fluid" style="text-align:center;">
+    <img class="mx-auto" id="img_not_found" src="https://cdn.dribbble.com/users/1175431/screenshots/6188233/404-error-dribbble-800x600.gif" style="border-radius:5px;margin-top:30px;margin-bottom:30px;display:block;" alt="">
+    <a id="not_found" class="card-subtitle {{str_dark}}" style="margin: 0 auto;">{{notfound_lang}}</a>
+    <button style="display:block;margin:auto;padding:10px;margin-top:20px;" class="btn btn-danger" (click)="goback()"><b>< {{back_lang}}</b></button>
+  </div>
+</div>
+
+<div *ngIf="isLoggedIn && error == false && loading" style="padding:10px;">
+  <h1 class="{{str_dark}}">Admin Manager</h1>
+  <hr class="{{str_dark}}">
+  <div class="container-fluid">
+    <h5  class="{{str_dark}}">Contacts list</h5>
+    <div *ngFor="let c of contacts">
+      <div *ngFor="let u of users">
+        <div class="user {{str_dark}}" style="margin:10px;" *ngIf="c.name == u.name">
+          <div style="margin-left:5px;margin-right:5px;display:inline-block">
+            <label id="grid" class="{{str_dark}}">
+            <img alt="" src={{u.photo_url}} style="width:19px;height:19px;border-radius:50%"> {{c.name}}
+            </label>
+            <label id="grid" class="{{str_dark}}"><i class="far fa-comment-dots"></i> {{c.text}}</label>
+            <label id="grid" class="{{str_dark}}"><i class="fas fa-clock"></i> {{c.date.seconds*1000 | date:'HH:mm, dd MMMM yyyy'}}</label>
+          </div>
+          <div style="display:inline-block;margin-bottom:8px;">
+            <i class="fas fa-trash" style="color:red;margin-left:10px;cursor: pointer;margin-bottom:5px;" (click)="deleteContact(c.id)" [title]="'Delete Contact'"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="{{str_dark}}">
+    <h5  class="{{str_dark}}">Movies list</h5>
+    <div id="chart" class="{{str_dark}}">
+      <chart [type]="typeChart" [data]="dataChart" [options]="optionsChart"></chart>
+    </div>
+    <div *ngFor="let m of movies">
+      <div class="user {{str_dark}}" style="margin:10px;">
+        <div style="margin-left:5px;margin-right:5px;display:inline-block">
+          <label id="grid" class="{{str_dark}}"><i class="fa fa-film"></i> {{m.name}}</label>
+          <label id="grid" class="{{str_dark}}"><i class="fa fa-star" style="color:#ffd700;"> {{m.avg_star | number: '1.1-1'}}</i></label>
+          <label id="grid" class="{{str_dark}}"><i class="fa fa-users"></i> {{m.view}}</label>
+        </div>
+        <div style="display:inline-block;margin-bottom:8px;">
+          <i class="fa fa-eye {{str_dark}}" [title]="'View Review'" style="margin-left:5px;cursor: pointer;transition: 0.5s ease-in-out;" [routerLink]="['/movies', m.id]"></i>
+          <i class="fas fa-redo-alt {{str_dark}}" [title]="'Reset Review'" style="margin-left:10px;cursor: pointer;transition: 0.5s ease-in-out;" data-toggle="modal" data-target="#resetModal" (click)="modalReset(m.id, m.name, m.id_list, m.id_list_reply, m.id_his_des, m.id_his_gen)" ></i>
+          <i class="fas fa-trash" style="color:red;margin-left:10px;cursor: pointer;" data-toggle="modal" data-target="#deleteModal" (click)="modalDelete(m.id, m.name, m.id_list, m.id_list_reply, m.id_his_des, m.id_his_gen)" [title]="'Delete Review'"></i>
+        </div>
+      </div>
+      <!-- Modal confirm reset -->
+      <div class="modal fade" id="resetModal" tabindex="-1" role="dialog" aria-labelledby="resetModalLabel" data-backdrop="false" style="background-color: rgba(0, 0, 0, 0.5);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content {{str_dark}}">
+            <div class="modal-header">
+              <h5 class="modal-title {{str_dark}}" id="resetModalLabel">Reset review {{movie_name}}?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" style="color:red;">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="https://firebasestorage.googleapis.com/v0/b/moviereview-cmu.appspot.com/o/home%2FRnfOkI.png?alt=media&token=3bc9c0c7-9aa6-49ec-a81b-39fcec6ecd3a" style="height:5%;width:5%">
+              <label class={{str_dark}}>This review will be reset data and can not be restored!</label>
+              <ul>
+                <li class={{str_dark}}>
+                  <a class={{str_dark}} id="modal_a">Edit History will be clear.</a>
+                </li>
+                <li class={{str_dark}}>
+                  <a class={{str_dark}} id="modal_a">Comments will be clear.</a>
+                </li>
+                <li class={{str_dark}}>
+                  <a class={{str_dark}} id="modal_a">Replys will be clear.</a>
+                </li>
+                <li class={{str_dark}}>
+                  <a class={{str_dark}} id="modal_a">Rating will be clear.</a>
+                </li>
+                <li class={{str_dark}}>
+                  <a class={{str_dark}} id="modal_a">View will be clear.</a>
+                </li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-success" (click)="resetReview(movie_id, movie_ld_list, movie_id_list_reply)" data-dismiss="modal">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal confirm delete -->
+      <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" data-backdrop="false" style="background-color: rgba(0, 0, 0, 0.5);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content {{str_dark}}">
+            <div class="modal-header">
+              <h5 class="modal-title {{str_dark}}" id="deleteModalLabel">Delete review {{movie_name}}?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" style="color:red;">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="https://firebasestorage.googleapis.com/v0/b/moviereview-cmu.appspot.com/o/home%2FRnfOkI.png?alt=media&token=3bc9c0c7-9aa6-49ec-a81b-39fcec6ecd3a" style="height:5%;width:5%">
+              <label class={{str_dark}}>This review will be delete permanent!</label>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+              <button type="button" class="btn btn-success" (click)="deleteReview(movie_id, movie_ld_list, movie_id_list_reply)" data-dismiss="modal">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="{{str_dark}}">
+    <h5  class="{{str_dark}}">Users list</h5>
+    <div id="chart" class="{{str_dark}}">
+      <chart [type]="typeChart2" [data]="dataChart2" [options]="optionsChart2"></chart>
+    </div>
+    <div *ngFor="let u of users">
+      <div class="user {{str_dark}}" style="margin:10px;">
+        <div style="margin-left:5px;margin-right:5px;display:inline-block;">
+          <label id="grid" class="{{str_dark}}"><img alt="" src={{u.photo_url}} style="width:19px;height:19px;border-radius:50%">  <i [title]="'VIP'" *ngIf="u.vip" class="fas fa-crown" style="color:gold;-webkit-text-stroke: 1px black;margin-left:5px;"></i> {{u.name}}</label>
+          <label id="grid" class="{{str_dark}}">
+            <i style="color:gold;" class="fa fa-certificate" *ngIf="u.level == 'Gold'"></i>
+            <i style="color:#2ebcef;" class="fas fa-gem" *ngIf="u.level == 'Premium'"></i>
+            <i style="color:red;" class="fa fa-bolt" *ngIf="u.level == 'Admin'"></i> {{u.level}}
+          </label>
+          <label id="grid" class="{{str_dark}}"><i class="fa fa-envelope"></i> {{u.email}}</label>
+          <label *ngIf="u.vip && u.expire != null" id="grid" class="{{str_dark}}"><i class="fas fa-clock" style="margin-right:5px;color: rgb(255, 100, 50);"></i> <a id="expire_date"><span id="expire_date_short">{{u.expire.seconds*1000 | timeFuture}}</span><span id="expire_date_full">{{u.expire.seconds*1000 | date:"HH:mm, dd MMMM yyyy"}}</span></a></label>
+          <label *ngIf="u.vip && u.expire == null" id="grid" class="{{str_dark}}"><i class="fas fa-clock" style="color: rgb(255, 100, 50);"> Unlimited</i></label>
+          <label id="grid" class="{{str_dark}}" *ngIf="u.status == 'Active'" style="color:greenyellow;">{{u.status}}</label>
+          <label id="grid" class="{{str_dark}}" *ngIf="u.status == 'Ban'" style="color:orangered;">{{u.status}}</label>
+        </div>
+        <div style="display:inline-block;margin-bottom:8px;">
+          <i class="fa fa-eye {{str_dark}}" [title]="'View Profile'" style="margin-left:5px;cursor: pointer;transition: 0.5s ease-in-out;" [routerLink]="['/profile', u.name]"></i>
+          <i class="fas fa-edit {{str_dark}}" style="margin-left:10px;margin-right:10px;cursor: pointer;transition: 0.5s ease-in-out;" data-toggle="modal" data-target="#userModal" (click)="modalEdit(u.name, u.level, u.photo_url, u.vip)" [title]="'Edit User'"></i>
+          <i class="fas fa-ban" style="color:orange;margin-right:10px;cursor: pointer;" data-toggle="modal" data-target="#banModal" (click)="modalBan(u.name, u.status)" [title]="'Ban User'"></i>
+        </div>
+      </div>
+      <!-- Modal edit user -->
+      <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" data-backdrop="false" style="background-color: rgba(0, 0, 0, 0.5);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content {{str_dark}}">
+            <div class="modal-header">
+              <h5 class="modal-title {{str_dark}}" id="userModalLabel">Edit user: {{user_name}}?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" style="color:red;">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <label class={{str_dark}}><b>Change VIP:</b></label>
+              <select #select_vip class="form-control {{str_dark}} vip_select" type="text" id="vip" value="{{user_vip}}">
+                <option>false</option>
+                <option>true</option>
+              </select>
+              <label style="margin-top:10px;" class={{str_dark}}><b>Change Schedule Expire:</b><small style="color:red;margin-left:5px;">*Only work with VIP member</small></label>
+              <input #date class="form-control {{str_dark}}" type="date" min="{{str_date}}" value="{{str_date}}">
+              <label style="margin-top:10px;" class={{str_dark}}><b>Change Level:</b></label>
+              <select class="form-control {{str_dark}} level_select" type="text" id="level" value="{{user_level}}">
+                <option>Normal</option>
+                <option style="color:#DAA520;">Gold</option>
+                <option style="color:#2ebcef;">Premium</option>
+                <option style="color:red;">Admin</option>
+              </select>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-success" (click)="editUser(user_name, date.value)" data-dismiss="modal">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal confirm ban -->
+      <div class="modal fade" id="banModal" tabindex="-1" role="dialog" aria-labelledby="banModalLabel" data-backdrop="false" style="background-color: rgba(0, 0, 0, 0.5);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content {{str_dark}}">
+            <div class="modal-header">
+              <h5 class="modal-title {{str_dark}}" id="banModalLabel">Ban Manager</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" style="color:red;">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p class={{str_dark}}><b>User: {{user_name}}</b></p>
+              <p class={{str_dark}} *ngIf="user_status == 'Active'"><b>Status: <a style="color:greenyellow;">{{user_status}}</a> -> <a style="color:orangered;">Ban</a></b></p>
+              <p class={{str_dark}} *ngIf="user_status == 'Ban'"><b>Status: <a style="color:orangered;">{{user_status}}</a> -> <a style="color:greenyellow;">Active</a></b></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-success" *ngIf="user_status == 'Active'" (click)="banUser(user_name, 'Ban')" data-dismiss="modal">OK</button>
+              <button type="submit" class="btn btn-success" *ngIf="user_status == 'Ban'" (click)="banUser(user_name, 'Active')" data-dismiss="modal">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

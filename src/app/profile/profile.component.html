@@ -1,0 +1,207 @@
+<div class="container-fluid" *ngIf="isEmpty(user) == false">
+  <div class="row" *ngFor="let u of user" style="padding:10px;">
+    <div id="col1">
+      <img id="img_profile" src={{u.photo_url}} style="border-radius:50%;" alt="">
+      <div id="text-detail" style="width:100%;word-wrap:break-word;">
+        <h3 id="name_person" class={{str_dark}}>{{name_lang}}: {{u.name}}<a style="color:red;font-size:15px;margin-left:5px;transition: 0.5s ease-in-out;" *ngIf="u.status == 'Ban'">(BANNED)</a><a style="color:gold;font-size:15px;margin-left:5px;transition: 0.5s ease-in-out;" *ngIf="u.vip">(VIP)</a></h3>
+        <h6 id="expire" class={{str_dark}} *ngIf="isLoggedIn && username == u.name && u.vip && u.expire != null">{{expire_lang}}: <a id="expire_date"><span id="expire_date_short" *ngIf="!isLangThai">{{u.expire.seconds*1000 | timeFuture}}</span><span id="expire_date_short" *ngIf="isLangThai">{{u.expire.seconds*1000 | timeFutureThai}}</span><span id="expire_date_full">{{u.expire.seconds*1000 | date:"HH:mm, dd MMMM yyyy"}}</span></a></h6>
+        <h4 id="level_user" class={{str_dark}} *ngIf="u.level == 'Normal'">{{level_lang}}: {{u.level}}</h4>
+        <h4 id="level_user" class={{str_dark}} *ngIf="u.level == 'Gold'">{{level_lang}}: <label style="color:gold;transition: 0.5s ease-in-out;"><i class="fa fa-certificate"></i> {{u.level}}</label></h4>
+        <h4 id="level_user" class={{str_dark}} *ngIf="u.level == 'Premium'">{{level_lang}}: <label style="color:#2ebcef;transition: 0.5s ease-in-out;"><i class="fas fa-gem"></i> {{u.level}}</label></h4>
+        <h4 id="level_user" class={{str_dark}} *ngIf="u.level == 'Admin'">{{level_lang}}: <label style="color:red;transition: 0.5s ease-in-out;"><i class="fa fa-bolt"></i> {{u.level}}</label></h4>
+        <button id="btn_edit" class="btn btn-info" *ngIf="isLoggedIn && username == u.name && u.level != 'Admin'" data-toggle="modal" data-target="#userModal" (click)="modalEdit(u.name, u.level, u.photo_url, u.remain, u.email)"><b>{{edit_lang}}</b></button>
+        <button id="btn_vip" class="btn btn-warning" *ngIf="isLoggedIn && username == u.name && !u.vip" data-toggle="modal" data-target="#vipModal" (click)="modalVip(u.name)"><b>{{vip_ex_lang}}</b></button>
+      </div>
+      <!-- Modal purchase vip -->
+      <div class="modal fade" id="vipModal" tabindex="-1" role="dialog" aria-labelledby="vipModalLabel" data-backdrop="false" style="background-color: rgba(0, 0, 0, 0.5);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content {{str_dark}}">
+            <div class="modal-header">
+              <h5 class="modal-title {{str_dark}}" id="vipModalLabel"><i class="fa fa-check-circle text-success"></i> {{vip1_lang}}?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" style="color:red;">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <label class="{{str_dark}}">{{vip1_lang}} <i class="fas fa-crown" style="color:gold;-webkit-text-stroke: 1px black;"></i> <i style="color:red;"> ({{vip2_lang}} <i class="fab fa-youtube"> Youtube</i>)</i> {{vip3_lang}}</label>
+              <label class={{str_dark}}>{{expire_lang}}: {{user_expire | date: 'HH:mm, dd MMMM yyyy' }}</label>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">{{close_lang}}</button>
+              <button type="button" class="btn btn-success" (click)="buyvip()" data-dismiss="modal">{{buy_lang}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal edit user -->
+      <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" data-backdrop="false" style="background-color: rgba(0, 0, 0, 0.5);">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content {{str_dark}}">
+            <div class="modal-header">
+              <h5 class="modal-title {{str_dark}}" id="userModalLabel">{{edit_lang}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" style="color:red;">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <label class={{str_dark}}><b>{{buy_level_lang}}:</b></label>
+              <mat-tab-group mat-stretch-tabs (selectedTabChange)=changeLevel($event) style="height:48px;background-color:rgb(230,230,230);border-top-left-radius:5px;border-top-right-radius:5px;" #tabs>
+                <mat-tab label> 
+                  <ng-template mat-tab-label>
+                    <span style="color:black;">Normal</span>
+                  </ng-template>
+                </mat-tab>
+                <mat-tab>
+                  <ng-template mat-tab-label>
+                    <i style="margin-right:10px;color:#DAA520;" class="fas fa-certificate"></i>
+                    <span style="color:#DAA520;">Gold</span>
+                  </ng-template>
+                </mat-tab>
+                <mat-tab>
+                  <ng-template mat-tab-label>
+                    <i style="margin-right:10px;color:#2ebcef;" class="fas fa-gem"></i>
+                    <span style="color:#2ebcef;">Premium</span>
+                  </ng-template>
+                </mat-tab>
+              </mat-tab-group>
+              <mat-card>
+                <mat-card-content>
+                  <h2 class="{{level}}">{{level}} Member</h2>
+                  <hr>
+                  {{support_lang}}: <i class="fab fa-cc-mastercard" style="margin-right:5px;"></i><i class="fab fa-cc-visa" style="margin-right:5px;"></i><i class="fab fa-cc-paypal" style="margin-right:5px;"></i><i class="fas fa-credit-card" style="margin-right:5px;"></i><i class="fab fa-google-wallet"></i>
+                  <div *ngIf="level == 'Normal'">
+                    {{price_lang}}: <label style="color:red;"> Free (ฟรี)</label><br>
+                    {{attribute_lang}}:
+                    <ul>
+                      <li>
+                        <i class="fa fa-check"></i> Can comment&reply review!
+                      </li>
+                      <li>
+                        <i class="fa fa-times"></i> Can't cheer rating review!
+                      </li>
+                      <li>
+                        <i class="fa fa-times"></i> Can't review movie!
+                      </li>
+                    </ul>
+                  </div>
+                  <div *ngIf="level == 'Gold'">
+                    {{price_lang}}: <label style="color:red;"> $8.99 (ประมาณ 300 บาท)</label><br>
+                    {{attribute_lang}}:
+                    <ul>
+                      <li>
+                        <i class="fa fa-check"></i> Can comment&reply review!
+                      </li>
+                      <li>
+                        <i class="fa fa-check"></i> Can cheer rating review!
+                      </li>
+                      <li>
+                        <i class="fa fa-times"></i> Can't review movie!
+                      </li>
+                      <li>
+                        <i style="margin-right:5px;color:#DAA520;" class="fas fa-certificate"></i>Special Symbol!
+                      </li>
+                    </ul>
+                  </div>
+                  <div *ngIf="level == 'Premium'">
+                    {{price_lang}}: <label style="color:red;"> $14.99 (ประมาณ 500 บาท)</label><br>
+                    {{attribute_lang}}:
+                    <ul>
+                      <li>
+                        <i class="fa fa-check"></i> Can comment&reply review!
+                      </li>
+                      <li>
+                        <i class="fa fa-check"></i> Can cheer rating review!
+                      </li>
+                      <li>
+                        <i class="fa fa-check"></i> Can review movie!
+                      </li>
+                      <li>
+                        <i style="margin-right:5px;color:#2ebcef;" class="fas fa-gem"></i>Special Symbol!
+                      </li>
+                    </ul>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger"  data-dismiss="modal">{{close_lang}}</button>
+              <button type="submit" class="btn btn-success"  (click)="buylevelUser()" data-dismiss="modal">{{buy_lang}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="col2" class="{{str_dark}}">
+      <div id="box_col3" class="position-relative">
+        <h1 class={{str_dark}}><i class="fa fa-film"></i> {{review_lang}} {{u.name}}</h1>
+        <hr class={{str_dark}}>
+        <div id="chart" class="{{str_dark}}">
+          <chart [type]="typeChart" [data]="dataChart" [options]="optionsChart"></chart>
+        </div>
+        <hr class={{str_dark}}>
+        <i style="color:orangered;"><b>{{result_lang}}: {{sum_movie}}</b></i>
+      </div>
+      <div class="container-fluid" id="mobile">
+        <div class="row" align="center">
+          <div *ngFor="let m of movies" style="width:50%">
+            <div class="position-relative {{str_dark}}" id="col_img" style="cursor:pointer;margin:5px;" [routerLink]="['/movies', m.id]" (click)="incView(m.id)">
+              <div class="d-flex align-items-end">
+                <img class="img-fluid" id="poster" src={{m.link}} alt="">
+                <div class="position-absolute" style="width:100%;">
+                  <div id="name" class="d-flex align-items-center" >
+                    <a id="text_name" style="background-color:rgba(0,0,0,0.9);border-top-right-radius:10px;font-size:12px;padding:5px;color:white;">{{m.name}}</a>
+                  </div>
+                  <div id="shadow" class="text-white d-flex align-items-center justify-content-center" style="height:30px;padding:5px;font-size:13px;">
+                    <i class="fa fa-star" style="color:#ffd700;"> {{m.avg_star | number: '1.1-1'}}</i><i class="fa fa-users" style="color:orange;margin-left:10px;"> {{m.view | numberSuff : 2}}</i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid" id="another">
+        <div class="row">
+          <div *ngFor="let m of movies" style="width:50%;">
+            <div class="position-relative {{str_dark}}" id="col_img" style="outline:0;cursor:pointer;margin:5px;border-radius:10px;" [routerLink]="['/movies', m.id]" (click)="incView(m.id)">
+              <div id="col3" class="card {{str_dark}}" style="float:right;border-top-right-radius:8px;">
+                <div class="card-header {{str_dark}}" style="border-top-right-radius:6px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
+                  <a class={{str_dark}} style="font-size:90%"><b>{{m.name}}</b></a>
+                </div>
+                <div class="card-body {{str_dark}}">
+                  <label id="grid" class="{{str_dark}}"><i class="fa fa-star" style="color:#ffd700;"> {{m.avg_star | number: '1.1-1'}} ({{m.star.length | numberSuff : 2}} {{cheer_lang}})</i></label><br>
+                  <label id="grid" class="{{str_dark}}"><i class="far fa-eye" style="color:orangered;margin-top:5px;"> {{m.view | numberSuff : 2}}</i></label><br>
+                  <label id="grid" class="{{str_dark}}"><i style="color:orange;font-size:90%;margin-top:5px;">{{reviewdate_lang}}: {{m.date.seconds*1000 | date:'HH:mm, dd MMMM yyyy' }}</i></label>
+                </div>
+                <div class="card-footer {{str_dark}}" style="overflow-x:auto;overflow-y:hidden;border-bottom-right-radius:8px;">
+                  <div class="card-group text-danger">
+                    <div class="row" style="padding:0px 10px 0px 10px;">
+                      <div class="col-16 d-flex align-items-center" style="padding-right:15px;">
+                        <b>{{genre_lang}}:</b>
+                        <div *ngFor="let i of m.genre">
+                          <div class="card text-info" style="padding-left:10px;padding-right:10px;margin-left:10px;height:auto;max-height:30px;">
+                            {{ i }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="position-relative" style="width:40%;display:inline-block;">
+                <img id="poster" src={{m.link}} alt="" style="border-top-left-radius:8px;border-bottom-left-radius:8px;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid" *ngIf="isEmpty(user)" style="text-align:center;">
+  <img class="mx-auto" id="img_not_found" src="https://cdn.dribbble.com/users/1175431/screenshots/6188233/404-error-dribbble-800x600.gif" style="border-radius:5px;margin-top:30px;margin-bottom:30px;display:block;" alt="">
+  <a id="not_found" class="{{str_dark}}" style="margin: 0 auto;">{{notfound_lang}}</a>
+  <button style="display:block;margin:auto;padding:10px;margin-top:20px;" class="btn btn-danger" (click)="goback()"><b>< {{back_lang}}</
+  b></button>
+</div>

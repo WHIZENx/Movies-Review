@@ -1,0 +1,283 @@
+<div *ngIf="!mode_movie && isEmpty(movie) == false && user_status != 'Ban'">
+  <div id="watch" *ngIf="isVip || user_level == 'Admin'" style="background-color:darkred;;width:100%;height:40px;padding: 8px;" align="center">
+    <div id="coll" *ngFor="let m of movie;">
+      <i (click)="search_youtube(m.name)" data-toggle="collapse" data-target="#collapseYoutube" class="fab fa-youtube" style="color:red;cursor:pointer;"><label style="color:white;margin-left:5px;cursor:pointer;">{{y1_lang}} <i class="fas fa-crown" style="color:gold;-webkit-text-stroke: 1px black;margin-left:5px;"> VIP</i> {{y2_lang}}</label></i>
+      <i class="fa fa-times" style="float:right;margin-right:5px;color:white;cursor:pointer;" (click)="closeMovie()"></i></div>
+    </div>
+  </div>
+<div class="collapse" id="collapseYoutube">
+  <div id="youtube" *ngIf="finish_load">
+    <iframe width="100%" height="100%" [src]="embed_youtube | safe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+<div class="container-fluid" *ngIf="isEmpty(movie) == false">
+  <div class="row" *ngFor="let m of movie;">
+    <div id="col1">
+      <img src={{m.link}} style="border-radius:5px;" alt="">
+      </div>
+      <div id="col2" class={{str_dark}}>
+        <h1 class="card-subtitle h1 {{str_dark}}">{{m.name}}</h1>
+        <div class="dropdown" *ngIf="isOwn && user_status != 'Ban'" style="margin-top:5px;">
+        <button class="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <b>{{options_lang}}</b>
+          </button>
+          <div class="dropdown-menu {{str_dark}}" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item {{str_dark}} text-warning" (click)="Editreview(m.des,m.genre)" type="button" data-toggle="modal" data-target="#editReview"><i class="fas fa-pencil-alt"></i> {{edit_lang}}</a>
+            <a class="dropdown-item {{str_dark}} text-info" type="button" data-toggle="modal" data-target="#historyModal"><i class="fa fa-history"></i> {{his_lang}}</a>
+            <a class="dropdown-item {{str_dark}} text-danger" type="button" data-toggle="modal" data-target="#deleteModal" (click)="get_delete(m.id_list, m.id_list_reply, m.id_his_des, m.id_his_gen, m.path)"><i class="fas fa-trash-alt"></i> {{delete_lang}}</a>
+          </div>
+        </div>
+        <hr class={{str_dark}}>
+        <div *ngFor="let u of user">
+          <div style="cursor:pointer;outline:0;display:inline-block;margin-left:20px;" [title]="'View '+u.name+' profile'" [routerLink]="['/profile', u.name]">
+            <div class="row">
+              <img id="photo" alt="" src={{u.photo_url}} style="border-radius:50%;">
+              <label id="name_review" class="card-text lead {{str_dark}}" style="margin-left:10px;cursor:pointer;"><b>{{review_lang}} <i *ngIf="u.vip" class="fas fa-crown" style="color:gold;-webkit-text-stroke: 1px black;"></i> {{u.name}}</b>
+                <div>
+                  <b><h6 style="color:red;" *ngIf="u.status == 'Ban'"><i class="fa fa-ban"></i> BANNED</h6></b>
+                  <b><h6 class={{str_dark}} *ngIf="u.status != 'Ban' && u.level == 'Normal'"> Normal Member</h6></b>
+                  <b><h6 style="color:gold;" *ngIf="u.status != 'Ban' && u.level == 'Gold'"><i class="fa fa-certificate"></i> Gold Member</h6></b>
+                  <b><h6 style="color:#2ebcef;" *ngIf="u.status != 'Ban' && u.level == 'Premium'"><i class="fa fas fa-gem"></i> Premium Member</h6></b>
+                  <b><h6 style="color:orangered;" *ngIf="u.status != 'Ban' && u.level == 'Admin'"><i class="fa fa-bolt"></i> Admin Member</h6></b>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div id="sub" class="colstar1 {{str_dark}}" style="position: relative;">
+              <div align="center" *ngIf="isLoggedIn && user_status != 'Ban' && user_level != 'Normal'">
+                <ul  id="star_cheer" class="list-inline rating-list" *ngFor="let star of stars" style="cursor:pointer;" >
+                  <li id="li" (mouseenter)="countStar(star)" [title]="star+' Stars'" (mouseleave)="loadStar()" (click)="saveStar(star)"
+                      [ngClass]="{'selected': (star <= selectedValue)}">
+                    <i class="fa fa-star {{str_dark}}"></i>
+                  </li>
+                </ul>
+              </div>
+              <div align="center" *ngIf="!isLoggedIn ||  user_status == 'Ban' || user_level == 'Normal'">
+                <ul  id="star_cheer" class="list-inline rating-list-none" *ngFor="let star of stars" >
+                  <li id="li" [title]="star+' Stars'" (click)="errorstar(isLoggedIn, user_status, user_level)"
+                      [ngClass]="{'selected': (star <= selectedValue)}">
+                    <i class="fa fa-star {{str_dark}}"></i>
+                  </li>
+                </ul>
+              </div>
+              <div id="view" style="color:orange;padding:5px;">
+                <b>{{view_lang}}: {{m.view | numberSuff : 2}}</b>
+                <div style="margin-top:10px;">{{reviewdate_lang}}: {{m.date.seconds*1000 | date:'HH:mm, dd MMMM yyyy' }}</div>
+              </div>
+            </div>
+            <div class="colstar2" id="progress" align="center">
+              <circle-progress
+                [percent]="star_percent"
+                [maxPercent]="100"
+                [radius]="50"
+                [showSubtitle]="false"
+                [space]="-10"
+                [innerStrokeWidth]="10"
+                [outerStrokeWidth]="10"
+                [innerStrokeColor]="'#eee'"
+                [outerStrokeColor]="'#ffd700'"
+                [unitsColor]="text_progress"
+                [titleColor]="text_progress"
+                [titleFontSize]="30"
+                [titleFontWeight]="700"
+                [unitsFontSize]="30"
+                [unitsFontWeight]="700"
+                [animation]="false"
+                [animationDuration]="500"
+              ></circle-progress>
+              <div id="mobile">
+                <b><i style="color:#ffd700;">{{rating_lang}}: {{ save_avg | number: '1.1-1' }}/5<br>({{number_rate | numberSuff : 2}} {{cheer_lang}})</i></b>
+              </div>
+              <div id="another">
+                <b><i style="color:#ffd700;">{{rating_lang}}: {{ save_avg | number: '1.1-1' }}/5 ({{number_rate | numberSuff : 2}} {{cheer_lang}})</i></b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class={{str_dark}}>
+        <div class="card-text {{str_dark}}" style="padding:0px 10px 10px 10px;">
+          <div [innerHTML]="m.des | safeHtml"></div>
+        </div>
+        <div class="card-footer {{str_dark}}" style="overflow-x:auto;">
+          <div class="card-group text-danger">
+            <div class="row">
+              <div class="col-16" style="padding-right:15px;">
+                <b>{{genre_lang}}:</b>
+                <div *ngFor="let i of genres">
+                  <div class="card text-info" style="padding-left:10px;padding-right:10px;margin-left:10px;">
+                    {{ i }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class={{str_dark}}>
+        <div style="margin-left:20px;">
+          <h2 class="card-subtitle h2 {{str_dark}}">{{comment_lang}} <i class="fa fa-caret-down"></i></h2>
+          <div *ngIf="isLoggedIn">
+            <div *ngFor="let c of curr_user">
+              <div style="margin-top:10px;" *ngIf="c.status != 'Ban'">
+                <img id="photo" alt="" src={{c.photo_url}} style="border-radius:50%;">
+                <i id="com" style="margin-left:10px;transition:0.5s ease-in-out;font-size:30px;" class="fade_com fa fa-comment {{str_dark}}"></i>
+                <input #comment class={{str_dark}} id="comment" style="margin-left:10px;padding:5px;" type="text" placeholder="Comment..." (keyup)="addcomment($event, comment.value, c.photo_url)" [(ngModel)]="inputValue">
+              </div>
+            </div>
+          </div>
+          <div *ngFor="let cm of comment;" style="margin:10px;">
+            <div *ngFor="let c of curr_user">
+                <div id="edit_com" class={{str_dark}} style="float:right;" *ngIf="c.status != 'Ban'">
+                  <i *ngIf="isLoggedIn" class="grow fas fa-reply" style="color:darkorange;cursor:pointer;" [title]="'Reply'" (click)="get_edit(cm.comment, cm.id)" data-toggle="collapse" data-target="#collapseReply" (click)="get_reply(cm.id)"></i><br>
+                  <i *ngIf="isLoggedIn && cm.user == username" class="grow fas fa-pencil-alt" style="color:orangered;cursor:pointer;" [title]="'Edit'" data-toggle="collapse" data-target="#collapseEdit" (click)="get_edit(cm.comment, cm.id)"></i>
+                </div>
+                <div class="collapse" id="collapseEdit" *ngIf="cm.id == id_comment">
+                  <div style="margin-left:10px;" *ngIf="c.status != 'Ban'">
+                    <i id="com" style="cursor:pointer;color:red;margin-left:10px;transition:0.5s ease-in-out;font-size:20px;" class="fade_com fas fa-trash-alt {{str_dark}}" (click)="deleteComment(cm.id_list)"></i>
+                    <input #edit_del class={{str_dark}} id="edit_del" style="margin-left:10px;padding:5px;" type="text" placeholder="Edit..." (keyup)="edit($event, edit_del.value)" [(ngModel)]="editinputValue" value={{editinputValue}}>
+                  </div>
+                </div>
+              </div>
+              <div class="collapse" id="collapseReply" *ngIf="cm.id == id_comment">
+                <div *ngFor="let c of curr_user">
+                  <div style="margin-left:10px;" *ngIf="c.status != 'Ban'">
+                    <img id="photo_reply" alt="" src={{c.photo_url}} style="border-radius:50%;">
+                    <i id="com" style="margin-left:10px;transition:0.5s ease-in-out;font-size:20px;" class="fade_com fas fa-reply-all {{str_dark}}"></i>
+                    <input #reply class={{str_dark}} id="reply" style="margin-left:10px;padding:5px;" type="text" placeholder="Reply..." (keyup)="addreply($event, reply.value, c.photo_url)" [(ngModel)]="replyinputValue">
+                  </div>
+                </div>
+              </div>
+            <app-display-comment [comment]="cm"></app-display-comment>
+          </div>
+        </div>
+      </div>
+    <!-- Modal confirm delete -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" data-backdrop="false" style="background-color: rgba(0, 0, 0, 0.5);">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content {{str_dark}}">
+          <div class="modal-header">
+            <h5 class="modal-title {{str_dark}}" id="deleteModalLabel">{{delete_lang}}: {{m.name}}?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" style="color:red;">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img src="https://firebasestorage.googleapis.com/v0/b/moviereview-cmu.appspot.com/o/home%2FRnfOkI.png?alt=media&token=3bc9c0c7-9aa6-49ec-a81b-39fcec6ecd3a" style="height:5%;width:5%">
+            <label class={{str_dark}}>{{title_lang}}!</label>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">{{no_lang}}</button>
+            <button type="button" class="btn btn-success" (click)="deleteReview()" data-dismiss="modal">{{yes_lang}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal edit review -->
+    <div class="modal fade" id="editReview" tabindex="-1" role="dialog" aria-labelledby="editReviewLabel" data-backdrop="false">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content {{str_dark}}">
+          <div class="modal-header">
+            <h5 class="modal-title {{str_dark}}" id="editposttext">{{e_title_lang}}: {{m.name}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" style="color:red;">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="editForm">
+              <div class="form-group">
+                <label class={{str_dark}} for="editdes">{{e_des_lang}}:</label>
+                <small style="color:orangered;"> ({{notic3_lang}} <i class="fas fa-font"></i>)</small>
+                <angular-editor id="editdes" class="{{str_dark}}" formControlName="edit_des" [(ngModel)]="htmlContent" [config]="config" [ngClass]="{ 'is-invalid': edit_submitted && e.edit_des.errors }" required></angular-editor>
+                <div *ngIf="edit_submitted && e.edit_des.errors" class="invalid-feedback">
+                  <div *ngIf="e.edit_des.errors.required">{{r_des_lang}}</div>
+                </div>
+              </div>
+              <div class="btn-group" style="display:block;">
+                <div class="form-group">
+                  <div class="card-footer {{str_dark}}" style="overflow-x:auto;">
+                    <div class="card-group text-danger">
+                      <div class="row">
+                        <div class="col-16" style="padding-right:10px;">
+                          <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><b>{{e_genre}}:</b><span class="caret"></span></button>
+                          <ul class="dropdown-menu scrollable-menu" role="menu">
+                            <li *ngFor="let i of all_genres">
+                              <a type="button" class="dropdown-item" (click)="addGenre(edit_list_genre, i)">{{i}}</a>
+                            </li>
+                          </ul>
+                          <div *ngFor="let i of edit_list_genre" class="d-flex align-items-center">
+                            <div class="card text-info" style="padding-left:10px;padding-right:10px;margin-left:10px;">
+                              {{ i }}
+                            </div>
+                            <button type="button" class="close" aria-label="Close" style="color:red;outline:none;">
+                              <span aria-hidden="true" (click)="deleteGenre(edit_list_genre, i)">&times;</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{close_lang}}</button>
+                <button type="submit" class="btn btn-primary" (click)="onSubmit(m.id,htmlContent)">{{save_lang}}</button>
+                <img *ngIf="success" src="https://png.pngtree.com/svg/20170509/correct_1359374.png" style="height:25px;width:25px" />
+                <img *ngIf="edit_submitted && success == false" src="https://www.shareicon.net/data/256x256/2015/09/15/101562_incorrect_512x512.png" style="height:25px;width:25px" />
+                <div *ngIf="edit_submitted && success == false" align="right" style="color:red;"><i>{{error_lang}}</i></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal history edit -->
+    <div class="modal fade" id="historyModal" tabindex="-1" role="dialog" aria-labelledby="historyModalLabel" data-backdrop="false" style="background-color: rgba(0, 0, 0, 0.5);">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content {{str_dark}}">
+          <div class="modal-body">
+            <mat-tab-group mat-stretch-tabs (selectedTabChange)=changeHis($event) style="height:48px;background-color:lightyellow;border-top-left-radius:5px;border-top-right-radius:5px;">
+              <mat-tab label> 
+                <ng-template mat-tab-label>
+                  <span style="color:black;">{{his_d_lang}}</span>
+                </ng-template>
+              </mat-tab>
+              <mat-tab label> 
+                <ng-template mat-tab-label>
+                  <span style="color:black;">{{his_g_lang}}</span>
+                </ng-template>
+              </mat-tab>
+            </mat-tab-group>
+            <mat-card style="max-height:500px;overflow-y:auto;background-color:rgba(0,0,0,0)">
+              <mat-card-content>
+                <div *ngIf="history == 'des'">
+                  <div *ngFor="let h of history_des" id="his_card" class={{str_dark}}>
+                    <div style="margin-top:10px;">
+                      <app-display-history-des [history]="h"></app-display-history-des>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="history == 'gen'">
+                  <div *ngFor="let h of history_gen" id="his_card" class={{str_dark}}>
+                    <div style="margin-top:10px;">
+                      <app-display-history-gen [history]="h"></app-display-history-gen>
+                    </div>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">{{close_lang}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid" *ngIf="isEmpty(movie)" style="text-align:center;">
+  <img class="mx-auto" id="img_not_found" src="https://cdn.dribbble.com/users/1175431/screenshots/6188233/404-error-dribbble-800x600.gif" style="border-radius:5px;margin-top:30px;margin-bottom:30px;display:block;" alt="">
+  <a id="not_found" class="card-subtitle {{str_dark}}" style="margin: 0 auto;">{{notfound_lang}}</a>
+  <button style="display:block;margin:auto;padding:10px;margin-top:20px;" class="btn btn-danger" (click)="goback()"><b>< {{back_lang}}</
+  b></button>
+</div>

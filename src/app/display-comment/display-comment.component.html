@@ -1,0 +1,43 @@
+<div class='d-flex align-items-start th_com {{str_dark}}' id="card">
+  <img [routerLink]="['/profile', comment.user]" id="photo" alt="" src={{comment.photo}} style="border-radius:50%;outline:0;cursor:pointer;" [title]="'View '+comment.user+' profile'">
+  <div id="txt_com" style="margin-left:10px;">
+    <i *ngIf="com_level == 'Gold'" class="fa fa-certificate" style="color:#DAA520;margin-right:5px;"></i>
+    <i *ngIf="com_level == 'Premium'" class="fa fa-gem" style="color:#2ebcef;margin-right:5px;"></i>
+    <i *ngIf="com_level == 'Admin'" class="fa fa-bolt" style="color:red;margin-right:5px;"></i>
+    <b class="card-text h5" style="word-wrap:break-word; border-bottom: 1px solid orange;font-size:17px;">{{comment.user}}</b><small *ngIf="comment.edit && isLangThai" style="color:tomato;"><b> (มีการแก้ไข)</b></small><small *ngIf="comment.edit && !isLangThai" style="color:tomato;"><b> (edited)</b></small><br>
+    <p class="card-text lead {{str_dark}}" style="word-wrap:break-word;font-size:17px;"><i class="far fa-comment-dots" style="margin-right:5px;transform: rotate(180deg) scaleX(-1);"></i>{{comment.comment}}</p>
+  </div>
+</div>
+<div align="right" id="card">
+  <div class={{str_dark}} id="point" style="display:inline-block;" *ngIf="!isLoggedIn">
+    <i id="like" style="margin-left:10px;" class="fa fa-thumbs-up"></i><b class={{str_dark}} id="num_point" style="margin-right:10px;">  : <b style="color:rgb(50,205,50)">{{like_num | numberSuff : 2}}</b> </b>
+    <i id="dislike" class="fa fa-thumbs-down"></i><b class={{str_dark}} id="num_point" style="margin-right:10px;"> : <b style="color:rgb(220,20,60);">{{dislike_num | numberSuff : 2}}</b></b>
+  </div>
+  <div *ngFor="let c of curr_user" style="display:inline-block;">
+    <div class={{str_dark}} id="point" *ngIf="isLoggedIn && c.status != 'Ban'">
+      <i id="like" style="margin-left:10px;cursor:pointer;" class="grow fa fa-thumbs-up {{userLike}}" (click)="like()"></i><b class={{str_dark}} id="num_point" style="margin-right:10px;">  : <b style="color:rgb(50,205,50)">{{like_num | numberSuff : 2}}</b> </b>
+      <i id="dislike" class="grow fa fa-thumbs-down {{userDislike}}" style="cursor:pointer;" (click)="dislike()"></i><b class={{str_dark}} id="num_point" style="margin-right:10px;"> : <b style="color:rgb(220,20,60);">{{dislike_num | numberSuff : 2}}</b></b>
+    </div>
+    <div class={{str_dark}} id="point" style="display:inline-block;" *ngIf="isLoggedIn && c.status == 'Ban'">
+      <i id="like" style="margin-left:10px;" class="fa fa-thumbs-up {{userLike}}"></i><b class={{str_dark}} id="num_point" style="margin-right:10px;">  : <b style="color:rgb(50,205,50)">{{like_num | numberSuff : 2}}</b> </b>
+      <i id="dislike" class="fa fa-thumbs-down {{userDislike}}"></i><b class={{str_dark}} id="num_point" style="margin-right:10px;"> : <b style="color:rgb(220,20,60);">{{dislike_num | numberSuff : 2}}</b></b>
+    </div>
+  </div>
+  <small *ngIf="isLangThai" id="time_com" class={{str_dark}} style="background-color:#d277ee;padding:5px;"><b>{{comment.date.seconds*1000 | timeAgoThai}}</b></small>
+  <small *ngIf="!isLangThai" id="time_com" class={{str_dark}} style="background-color:#d277ee;padding:5px;"><b>{{comment.date.seconds*1000 | timeAgo}}</b></small>
+</div>
+
+<div *ngFor="let r of reply;" style="margin-left:30px;margin-top:10px;">
+  <div *ngFor="let c of curr_user">
+    <div id="edit_re" class={{str_dark}} style="float:right;" *ngIf="c.status != 'Ban'" >
+      <i *ngIf="isLoggedIn && r.user == username" class="grow fas fa-pencil-alt" style="color:orangered;cursor:pointer;" [title]="'Edit'" data-toggle="collapse" data-target="#collapseEditR" (click)="get_edit(r.reply, r.id_com_re, r.id)"></i>
+    </div>
+    <div class="collapse" id="collapseEditR" *ngIf="r.id == id_comment_re">
+      <div style="margin-left:10px;" *ngIf="c.status != 'Ban'">
+        <i id="re" style="cursor:pointer;color:red;margin-left:10px;transition:0.5s ease-in-out;font-size:20px;" class="fade_com fas fa-trash-alt {{str_dark}}" (click)="deleteReply()"></i>
+        <input #edit_del class={{str_dark}} id="edit_del" style="margin-left:10px;padding:5px;" type="text" placeholder="Edit..." (keyup)="edit($event, edit_del.value)" [(ngModel)]="editinputValue" value={{editinputValue}}>
+      </div>
+    </div>
+  </div>
+  <app-display-reply [reply]="r"></app-display-reply>
+</div>

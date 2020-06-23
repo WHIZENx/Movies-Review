@@ -1,0 +1,26 @@
+<div class="container-fluid {{str_dark}}" style="margin-top:40px;transition: 0.5s ease-in-out;">
+<h2 style="text-align: center; color: blue"><i class="fa fa-user"></i> {{login_lang}}</h2>
+<form [formGroup]="loginForm" (ngSubmit)="login(names)" style="margin-top:20px;">
+  <div class="form-group">
+    <label for="username" class={{str_dark}}>{{name_lang}}:</label>
+    <input type="varchar" formControlName="username" class="form-control {{str_dark}}" id="username" placeholder={{e_name_lang}} name="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+        <div *ngIf="f.username.errors.required">{{r_name_lang}}</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password" class={{str_dark}}>{{pass_lang}}:</label>
+    <div class="input-group" id="show_hide_password">
+      <input type="password" formControlName="password" class="form-control {{str_dark}}" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder={{e_pass_lang}} name="password" id="password" />
+      <div class="input-group-prepend" (click)="viewPassword()">
+        <span class="input-group-text" style="cursor:pointer;"><i class="fa fa-eye-slash"></i></span>
+      </div>
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">{{r_pass_lang}}</div>
+      </div>
+    </div>
+  </div>
+  <label class={{str_dark}}>{{txt_re_lang}} <a routerLink="../register"><i class="fa fa-user-plus"></i>{{register_lang}}</a></label><br>
+  <button *ngIf="!submitted" type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> {{login_lang}}</button>
+  <mat-progress-spinner *ngIf="submitted" color="warn" mode="indeterminate" diameter="40" style="margin-left:20px;"></mat-progress-spinner>
+</form>

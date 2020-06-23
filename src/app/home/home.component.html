@@ -1,0 +1,117 @@
+<img id="bg_img" style="width:100%;height:380px;position:absolute;z-index:-1;padding-bottom:50px;animation:fadein 2s;animation-delay:0.5s;opacity:0;animation-fill-mode:forwards;" alt="">
+<img id="meow" class="jump" [title]="'Meow~'" style="height:150px;position:absolute;z-index:0;animation-delay:3s;animation-fill-mode:forwards;" src="https://firebasestorage.googleapis.com/v0/b/moviereview-cmu.appspot.com/o/home%2FQrFCDI.png?alt=media&token=9e7663dd-32a6-4ebc-9030-e303fcde3de5">
+<div style="animation:fadein 1.5s;animation-delay:1.5s;opacity:0;animation-fill-mode:forwards;">
+  <div id="chiar" style="height:300px;position:absolute;z-index:-1;top:240px;">
+    <img style="width:50%;height:50%;" src="https://firebasestorage.googleapis.com/v0/b/moviereview-cmu.appspot.com/o/home%2FQnExQb.png?alt=media&token=eda6fbc8-0080-460c-b629-a775ba867ae8">
+  </div>
+  <div id="popcorn" style="height:300px;position:absolute;z-index:-1;top:280px;">
+    <img class="box bounce-7" src="https://firebasestorage.googleapis.com/v0/b/moviereview-cmu.appspot.com/o/home%2FQnPqet.png?alt=media&token=bc3965e3-c8d4-432b-aee5-22ff2a4486e7">
+  </div>
+</div>
+<div class="cinema" style="position:absolute;z-index:0;animation:fadein 1.5s;animation-delay:1s;opacity:0;animation-fill-mode:forwards;">
+  <p id="movie">M<span>o</span>v<span>i</span>e</p>
+  <p id="review"><span>R</span>e<span>vi</span>e<span>w</span></p>
+</div>
+<img class="slide-left" src="https://firebasestorage.googleapis.com/v0/b/moviereview-cmu.appspot.com/o/home%2FQngdNq.png?alt=media&token=6392c5f2-6847-4a9e-a53b-466355c7bf45" style="width:7%;height:350px;position:absolute;z-index:-1;" alt="">
+<img class="slide-right" src="https://firebasestorage.googleapis.com/v0/b/moviereview-cmu.appspot.com/o/home%2FQng7r8.png?alt=media&token=96749ea8-6eb4-4bc2-85f5-9d1adc37b985" style="width:7%;height:350px;position:absolute;z-index:-1;" alt="">
+
+<div style="height:300px;position:absolute;z-index:1;left:39%;animation:fadein 1.5s;animation-delay:2s;opacity:0;animation-fill-mode:forwards;margin-top:1px;">
+  <div id="carouselHot" class="carousel slide carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselHot" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselHot" data-slide-to="1"></li>
+      <li data-target="#carouselHot" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" id="carousel-slider" >
+      <div class="carousel-item active">
+        <div *ngFor="let movie of hot_movie;" style="padding:5px;">
+          <div id="hot-card" class="card h-100" style="background-color:#ffd700;">
+            <div id="card" class="d-flex align-items-end">
+              <img class="img-fluid" id="hod_img" src={{movie.link}} alt="">
+              <div class="position-absolute" style="width:100%;">
+                <div id="hot-bg-card" class="d-flex align-items-center">
+                  <a id="text_name" style="background-color:orangered;border-top-right-radius:15px;font-size:10px;padding:10px;color:white;">🔥 {{hot_lang}} {{movie.postBy}}</a>
+                </div>
+                <div id="hot-bg-card" class="text-center" style="height:13%;padding:10px;background-color:#ffd700;font-size:15px;padding:10px;">
+                  <a><b>{{movie.name}}</b></a>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item" style="padding:5px;">
+        <div class="card h-100" style="background-color:#000;">
+            <div id="card" class="d-flex align-items-end">
+              <img class="img-fluid" style="width:210px;height:300px;" src="https://oyster.ignimgs.com/wordpress/stg.ign.com/2020/03/ESqvMg2U0AAxA41.jpg" alt="">
+              <div class="w-100 position-absolute mx-auto text-white" align="center" style="padding-bottom:20px;padding-top:10px;background-color:rgba(0, 0, 0, 0.7);box-shadow: 0px 0px 10px 0px #000;">
+                <h5 style="text-decoration-line: underline;">New Movie</h5>
+                <p>🦸 MARVEL STUDIO</p>
+                <p style="-webkit-text-stroke: 2px white;">Black Widow</p>
+              </div>
+            </div> 
+          </div>
+      </div>
+      <div class="carousel-item" style="padding:5px;z-index:-10px;">
+        <div class="card h-100" style="background-color:#000;">
+          <div id="card" class="d-flex align-items-end">
+            <img class="img-fluid" style="width:210px;height:300px;" src="https://i.pinimg.com/originals/3f/fb/a4/3ffba4ac08f2397935816c4d64a48060.jpg" alt="">
+            <div class="w-100 position-absolute mx-auto text-white" align="center" style="padding-bottom:20px;padding-top:10px;background-color:rgba(0, 0, 0, 0.7);box-shadow: 0px 0px 10px 0px #000;">
+              <h5 style="text-decoration-line: underline;">Top Movie of the World</h5>
+              <p>🦸 MARVEL STUDIO</p>
+              <p style="-webkit-text-stroke: 2px white;">Avenger End Game</p>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" data-target="#carouselHot" role="button" data-slide="prev" style="cursor:pointer;">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" data-target="#carouselHot" role="button" data-slide="next" style="cursor:pointer;">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+<img id="footer" src="https://firebasestorage.googleapis.com/v0/b/moviereview-cmu.appspot.com/o/home%2FQnV8tR.png?alt=media&token=1da34056-a6f1-4a2d-80b0-289b9c9256cd" style="width:100%;position:absolute;z-index:2;top:365px;animation:fadein 0.5s;" alt="">
+
+<div id="banner" style="background-color:#e3f2fd;padding:5px;height:60px;box-shadow:0px 6px 6px rgba(0,0,0,0.3)">
+	<form class="my-lg-0 has-search" style="width:35%;float:right;padding:5px;" *ngIf="genre_now == 'All'">
+		<i class="fa fa-search form-control-feedback"></i>
+		<input #s_name (keyup)="search($event, movies)" class="form-control" type="text" placeholder={{search_lang}}>
+  </form>
+  <mat-tab-group (selectedTabChange)=selectGenre($event)>
+    <div *ngIf="isLangThai">
+      <mat-tab *ngFor="let genre of genres_thai" label={{genre}}></mat-tab>
+    </div>
+    <div *ngIf="!isLangThai">
+      <mat-tab *ngFor="let genre of genres" label={{genre}}></mat-tab>
+    </div>
+  </mat-tab-group>
+</div>
+
+<div class="container" style="animation:fadein 0.8s;">
+  <div *ngIf="countItem(movies) && loading" style="margin:10px;margin-left:30px;">
+    <i style="color:orangered;"><b>{{result_lang}}: {{sum_movie}}</b></i>
+  </div>
+  <div class="row" *ngIf="genre_now == 'All'">
+    <div id="content" class="col-md-4 col-6" *ngFor="let movie of movies;">
+      <app-display-movie [movie]="movie" [routerLink]="['/movies', movie.id]" (click)="incView(movie.id)"></app-display-movie>
+    </div>
+  </div>
+  <div class="row" *ngIf="genre_now != 'All'">
+    <div id="content" class="col-md-4 col-6" *ngFor="let movie of movies_genre;">
+      <app-display-movie [movie]="movie" [routerLink]="['/movies', movie.id]" (click)="incView(movie.id)"></app-display-movie>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="loading">
+  <div *ngIf="isEmpty(movies)">
+    <div class="container">
+      <img class="center" src="https://www.brainpop.com/conceptmap/img/img_noresults_movies.png">
+    </div>
+  </div>
+</div>

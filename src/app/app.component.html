@@ -1,0 +1,36 @@
+<div class={{str_dark}} style="width:100%;height:100%;position:fixed;overflow-y:auto;overflow-x:hidden;margin:0">
+  <div class="header fixed-top">
+    <app-header></app-header>
+  </div>
+  <div class="body">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="footer fixed-bottom d-flex align-items-center justify-content-center" *ngIf="isLoggedIn && user_status == 'Ban'">
+    {{ban_lang}} <a style="margin-left:5px;" data-toggle="modal" data-target="#contactModal">{{contact_lang}}</a>
+  </div>
+  <div class="footer fixed-bottom d-flex align-items-center justify-content-center" *ngIf="isLoggedIn && vip_expire">
+    {{vip_expire_lang}} <a style="margin-left:5px;" [routerLink]="['/profile', username]">{{profile_lang}}</a>
+    <div style="float:right;text-align:right;margin-left:10px;" align="right">
+    <i class="fa fa-times" style="color:white;cursor:pointer;" (click)="closeTab()"></i>
+    </div>
+  </div>
+</div>
+
+<!-- Modal contact us -->
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="historyModalLabel" data-backdrop="false" style="background-color: rgba(0, 0, 0, 0.5);">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content {{str_dark}}">
+      <div class="modal-header">
+        <h5 class="modal-title {{str_dark}}" id="editposttext">{{contact_lang}}:</h5>
+      </div>
+      <div class="modal-body">
+        <label class={{str_dark}} for="exampleFormControlTextarea1">{{text_lang}}</label>
+        <textarea #contact_txt class="form-control {{str_dark}}" id="FormControlTextarea" rows="5"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">{{close_lang}}</button>
+        <button type="button" class="btn btn-success" (click)="send(contact_txt.value)">{{send_lang}}</button>
+      </div>
+    </div>
+  </div>
+</div>

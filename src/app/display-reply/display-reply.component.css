@@ -1,0 +1,228 @@
+/* Iphone 5/SE */
+@media (max-width: 350px) {
+  #photo {
+    width: 25px;
+    height: 25px;
+  }
+
+  #txt_com {
+    width:80%;
+  }
+
+  #card {
+    width:91%;
+  }
+}
+
+/* Iphone 6/7/8 */
+@media (min-width: 351px) and (max-width: 375px) {
+  #photo {
+    width: 30px;
+    height: 30px;
+  }
+
+  #txt_com {
+    width:80%;
+  }
+
+  #card {
+    width:93.35%;
+  }
+}
+
+/* Iphone 6/7/8 Pro */
+@media (min-width: 376px) and (max-width: 415px) {
+  #photo {
+    width: 30px;
+    height: 30px;
+  }
+
+  #txt_com {
+    width:85%;
+  }
+
+  #card {
+    width:94.2%;
+  }
+}
+
+/* Iphone 5/SE Landscape */
+@media (min-width: 416px) and (max-width: 568px) {
+  #photo {
+    width: 30px;
+    height: 30px;
+  }
+
+  #txt_com {
+    width:92%;
+  }
+
+  #card {
+    width:96.2%;
+  }
+}
+
+/* Iphone 6/7/8 and Iphone 6/7/8 Pro Landscape */
+@media (min-width: 569px) and (max-width: 767.8px) {
+  #photo {
+    width: 30px;
+    height: 30px;
+  }
+
+  #txt_com {
+    width:92%;
+  }
+
+  #card {
+    width:97%;
+  }
+}
+
+/* Ipad */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+  #photo {
+    width: 35px;
+    height: 35px;
+  }
+
+  #txt_com {
+    width:88%;
+  }
+
+  #card {
+    width:96%;
+  }
+
+}
+/* Ipad Pro */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+  #photo {
+    width: 35px;
+    height: 35px;
+  }
+
+  #txt_com {
+    width:90%;
+  }
+
+  #card {
+    width:97%;
+  }
+
+}
+/* 100% */
+@media (min-width: 1200px) and (max-width: 1919.98px) {
+
+  #photo {
+    width: 40px;
+    height: 40px;
+  }
+
+  #txt_com {
+    width:94%;
+  }
+
+  #card {
+    width:98.2%;
+  }
+
+}
+/* 80% */
+@media (min-width: 1920px) {
+
+  #photo {
+    width: 40px;
+    height: 40px;
+  }
+
+  #txt_com {
+    width:95%;
+  }
+
+  #card {
+    width:98.7%;
+  }
+
+}
+
+.th_com {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding:10px;
+  transition: 0.5s ease-in-out;
+}
+
+.th_com[class~="light"] {
+  color:black;
+  background-color: rgb(240, 240, 240);
+}
+
+.th_com[class~="dark"] {
+  color:white;
+  background-color: rgb(40, 40, 40);
+}
+
+#time_com {
+  transition: 0.5s ease-in-out;
+}
+
+#time_com[class~="light"] {
+  color:white;
+}
+
+#time_com[class~="dark"] {
+  color:  black;
+}
+
+#point {
+  color:  rgb(100, 100, 100);
+  transition: 0.5s ease-in-out;
+  border-bottom-left-radius: 5px;
+}
+
+#point[class~="light"] {
+  background-color: rgb(250, 250, 250);
+  /* border-left: 3px solid rgb(240, 240, 240);
+  border-bottom: 3px solid rgb(240, 240, 240); */
+}
+
+#point[class~="dark"] {
+  background-color: rgb(60, 60, 60);
+  /* border-left: 3px solid rgb(20, 20, 20);
+  border-bottom: 3px solid  rgb(20, 20, 20); */
+}
+
+#num_point {
+  transition: 0.5s ease-in-out;
+}
+
+#num_point[class~="light"] {
+  color: black;
+}
+
+#num_point[class~="dark"] {
+  color: white;
+}
+
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { 
+  transform: scale(2);
+}
+
+#like[class~="true"] {
+  color: rgb(50,205,50);
+}
+
+#dislike[class~="true"] {
+  color: rgb(220,20,60);
+}
+
+h5[class~="light"] {
+  color: black;
+}
+
+h5[class~="dark"] {
+  color: white;
+}

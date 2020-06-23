@@ -1,0 +1,1146 @@
+/* Iphone 5/SE */
+@media (max-width: 350px) {
+  .row {
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+  #youtube {
+    padding:10px;
+    width: 100%;
+    height: 520px;
+  }
+
+  #col1 {
+    text-align: center;
+    width: 100%;
+    height: 520px;
+  }
+
+  #col2 {
+    margin: 10px 5px 5px 5px;
+    height: 520px;
+    width: 100%;
+  }
+
+  #another {
+    display:none;
+  }
+
+  .colstar1 {
+    width:50%;
+  }
+
+  .colstar2 {
+    width:50%;
+  }
+
+  #view {
+    font-size:15px;
+    margin-left:10px;
+  }
+
+  #star_cheer {
+    font-size: 15px;
+  }
+
+  img {
+    width:95%;
+    height:100%;
+  }
+
+  #img_not_found {
+    width:50%;
+    height:50%;
+  }
+
+  #photo {
+    width: 40px;
+    height: 40px;
+  }
+
+  #photo_reply {
+    width: 25px;
+    height: 25px;
+  }
+
+  input[type=text]#comment:focus, input[type=text]#reply:focus {
+    width: 60%;
+  }
+  
+  input[type=text]#edit_del:focus {
+    width: 70%;
+  }
+
+  #watch {
+    font-size: 15px;
+  }
+
+  #text_cheer {
+    font-size:16px;
+  }
+
+  #name_review {
+    max-width:190px;
+  }
+}
+
+/* Iphone 6/7/8 */
+@media (min-width: 351px) and (max-width: 375px) {
+  .row {
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+  #youtube {
+    padding:10px;
+    width: 100%;
+    height: 550px;
+  }
+
+  #col1 {
+    text-align: center;
+    width: 100%;
+    height: 550px;
+  }
+
+  #col2 {
+    margin: 10px 5px 5px 5px;
+    height: 550px;
+    width: 100%;
+  }
+
+  #another {
+    display:none;
+  }
+
+  .colstar1 {
+    width:50%;
+  }
+
+  .colstar2 {
+    width:50%;
+  }
+
+  #view {
+    font-size:15px;
+    margin-left:10px;
+  }
+
+  #star_cheer {
+    font-size: 19px;
+  }
+
+  img {
+    width:95%;
+    height:100%;
+  }
+
+  #img_not_found {
+    width:50%;
+    height:50%;
+  }
+
+  #photo {
+    width: 50px;
+    height: 50px;
+  }
+
+  #photo_reply {
+    width: 30px;
+    height: 30px;
+  }
+
+  input[type=text]#comment:focus, input[type=text]#reply:focus {
+    width: 65%;
+  }
+  
+  input[type=text]#edit_del:focus {
+    width: 78%;
+  }
+
+  #watch {
+    font-size: 15px;
+  }
+
+  #text_cheer {
+    font-size:20px;
+  }
+
+  #name_review {
+    max-width:210px;
+  }
+}
+
+/* Iphone 6/7/8 Pro */
+@media (min-width: 376px) and (max-width: 415px) {
+  .row {
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+  #youtube {
+    padding:10px;
+    width: 100%;
+    height: 550px;
+  }
+
+  #col1 {
+    text-align: center;
+    width: 100%;
+    height: 550px;
+  }
+
+  #col2 {
+    margin: 10px 5px 5px 5px;
+    height: 550px;
+    width: 100%;
+  }
+  
+  #another {
+    display:none;
+  }
+
+  .colstar1 {
+    width:50%;
+  }
+
+  .colstar2 {
+    width:50%;
+  }
+
+  #view {
+    font-size:15px;
+    margin-left:10px;
+  }
+
+  #star_cheer {
+    font-size: 19px;
+  }
+
+  img {
+    width:95%;
+    height:100%;
+  }
+
+  #img_not_found {
+    width:50%;
+    height:50%;
+  }
+
+  #photo {
+    width: 50px;
+    height: 50px;
+  }
+
+  #photo_reply {
+    width: 30px;
+    height: 30px;
+  }
+
+  input[type=text]#comment:focus, input[type=text]#reply:focus {
+    width: 69%;
+  }
+  
+  input[type=text]#edit_del:focus {
+    width: 82%;
+  }
+
+  #watch {
+    font-size: 15px;
+  }
+
+  #name_review {
+    max-width:220px;
+  }
+
+}
+
+/* Iphone 5/SE Landscape */
+@media (min-width: 416px) and (max-width: 568px) {
+  .row {
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+  #youtube {
+    padding:10px;
+    width: 100%;
+    height: 325px;
+  }
+
+  #col1 {
+    margin:auto;
+    text-align: center;
+    width: 370px;
+    height: 550px;
+  }
+
+  #col2 {
+    margin: 10px 5px 5px 5px;
+    height: 550px;
+    width: 100%;
+  }
+
+  #mobile {
+    display:none;
+  }
+
+  .colstar1 {
+    width:50%;
+  }
+
+  .colstar2 {
+    width:50%;
+  }
+
+  #view {
+    font-size:16px;
+    margin-left:15px;
+  }
+
+  #collapseOver span {
+    font-size: 11px;
+    left:9%;
+  }
+
+  #star_cheer {
+    font-size: 20px;
+  }
+
+  img {
+    width:95%;
+    height:100%;
+  }
+
+  #img_not_found {
+    width:50%;
+    height:50%;
+  }
+
+  #photo {
+    width: 50px;
+    height: 50px;
+  }
+
+  #photo_reply {
+    width: 30px;
+    height: 30px;
+  }
+
+  input[type=text]#comment:focus, input[type=text]#reply:focus {
+    width: 78%;
+  }
+  
+  input[type=text]#edit_del:focus {
+    width: 86%;
+  }
+
+  #watch {
+    font-size: 15px;
+  }
+
+  #star-half {
+    margin-top:4.5px;
+  }
+
+  #name_review {
+    max-width:500px;
+  }
+}
+
+/* Iphone 6/7/8 and Iphone 6/7/8 Pro Landscape */
+@media (min-width: 569px) and (max-width: 767.8px) {
+  .row {
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+  #youtube {
+    padding:10px;
+    width: 100%;
+    height: 325px;
+  }
+
+  #col1 {
+    margin:auto;
+    text-align: center;
+    width: 370px;
+    height: 550px;
+  }
+
+  #col2 {
+    margin: 10px 5px 5px 5px;
+    height: 550px;
+    width: 100%;
+  }
+
+  #mobile {
+    display:none;
+  }
+
+  .colstar1 {
+    width:50%;
+  }
+
+  .colstar2 {
+    width:50%;
+  }
+
+  #view {
+    font-size: 18px;
+    margin-left:20px;
+  }
+
+  #star_cheer {
+    font-size: 25px;
+  }
+
+  img {
+    width:95%;
+    height:100%;
+  }
+
+  #img_not_found {
+    width:50%;
+    height:50%;
+  }
+
+  #photo {
+    width: 50px;
+    height: 50px;
+  }
+
+  #photo_reply {
+    width: 30px;
+    height: 30px;
+  }
+
+  input[type=text]#comment:focus, input[type=text]#reply:focus {
+    width: 80%;
+  }
+  
+  input[type=text]#edit_del:focus {
+    width: 87%;
+  }
+
+  #watch {
+    font-size: 15px;
+  }
+
+  #name_review {
+    max-width:520px;
+  }
+
+}
+/* Ipad */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+  .row {
+    padding: 10px;
+  }
+
+  #youtube {
+    padding:10px;
+    height: 400px;
+    width: 97%;
+    margin-left: 10px;
+  }
+
+  #col1 { 
+    max-height: 325px;
+    width: 27%;
+    margin-left: 10px;
+  }
+
+  #col2 {
+    height: 885px;
+    width: 69%;
+    margin-left: 10px;
+  }
+
+  #mobile {
+    display:none;
+  }
+
+  .colstar1 {
+    width:45%;
+  }
+
+  .colstar2 {
+    width:55%;
+  }
+
+  #view {
+    font-size: 15px;
+    margin-left:15px;
+  }
+
+  #star_cheer {
+    font-size: 25px;
+  }
+
+  img {
+    width:100%;
+    height:100%;
+  }
+
+  #img_not_found {
+    width:40%;
+    height:40%;
+  }
+
+  #photo {
+    width: 55px;
+    height: 55px;
+  }
+
+  #photo_reply {
+    width: 35px;
+    height: 35px;
+  }
+
+  input[type=text]#comment:focus, input[type=text]#reply:focus {
+    width: 75%;
+  }
+
+  input[type=text]#edit_del:focus {
+    width: 84%;
+  }
+
+  #name_review {
+    max-width:400px;
+  }
+}
+/* Ipad Pro */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+  .row {
+    padding: 10px;
+  }
+
+  #youtube {
+    padding:10px;
+    height: 500px;
+    width: 97%;
+    margin-left: 10px;
+  }
+
+  #col1 { 
+    max-height: 380px;
+    width: 27%;
+    margin-left: 10px;
+  }
+
+  #col2 {
+    height: 1215px;
+    width: 70%;
+    margin-left: 10px;
+  }
+
+  #mobile {
+    display:none;
+  }
+
+  .colstar1 {
+    width:40%;
+  }
+
+  .colstar2 {
+    width:60%;
+  }
+
+  #view {
+    font-size: 18px;
+    margin-left:15px;
+  }
+
+  #star_cheer {
+    font-size: 25px;
+  }
+
+  img {
+    width:100%;
+    height:100%;
+  }
+
+  #img_not_found {
+    width:37%;
+    height:37%;
+  }
+
+  #photo {
+    width: 55px;
+    height: 55px;
+  }
+
+  #photo_reply {
+    width: 35px;
+    height: 35px;
+  }
+
+  input[type=text]#comment:focus, input[type=text]#reply:focus {
+    width: 81%;
+  }
+
+  input[type=text]#edit_del:focus {
+    width: 88%;
+  }
+
+  #name_review {
+    max-width:550px;
+  }
+}
+/* 100% */
+@media (min-width: 1200px) and (max-width: 1919.98px) {
+
+  .row {
+    padding: 10px;
+  }
+
+  #youtube {
+    padding:10px;
+    height: 620px;
+    width: 98%;
+    margin-left: 10px;
+  }
+
+  #col1 { 
+    width: 27%;
+    margin-left: 10px;
+    height: 620px;
+  }
+
+  #col2 {
+    height: 630px;
+    width: 71%;
+    margin-left: 10px;
+  }
+
+  img {
+    width:100%;
+    height:100%;
+  }
+
+  #img_not_found {
+    width:35%;
+    height:35%;
+  }
+
+  #photo {
+    width: 60px;
+    height: 60px;
+  }
+
+  #photo_reply {
+    width: 40px;
+    height: 40px;
+  }
+
+  input[type=text]#comment:focus, input[type=text]#reply:focus {
+    width: 86%;
+  }
+
+  input[type=text]#edit_del:focus {
+    width: 92%;
+  }
+
+  #name_review {
+    max-width:900px;
+  }
+
+  #mobile {
+    display:none;
+  }
+
+  .colstar1 {
+    width:40%;
+  }
+
+  .colstar2 {
+    width:60%;
+  }
+
+  #star_cheer {
+    font-size: 28px;
+  }
+
+  #view {
+    font-size: 20px;
+    margin-left:40px;
+  }
+}
+/* 80% */
+@media (min-width: 1920px) {
+  .row {
+    padding: 10px;
+  }
+
+  #youtube {
+    padding:10px;
+    height: 780px;
+    width: 99%;
+    margin-left: 10px;
+  }
+
+  #col1 { 
+    width: 27%;
+    margin-left: 10px;
+    max-height: 780px;
+  }
+
+  #col2 {
+    min-height: 800px;
+    max-height: 810px;
+    width: 71%;
+    margin-left: 10px;
+  }
+
+  #view {
+    font-size: 25px;
+    margin-left:50px;
+  }
+
+  img {
+    width:100%;
+    height:100%;
+  }
+
+  #img_not_found {
+    width:35%;
+    height:35%;
+  }
+
+  #photo {
+    width: 60px;
+    height: 60px;
+  }
+
+  #photo_reply {
+    width: 40px;
+    height: 40px;
+  }
+
+  input[type=text]#comment:focus, input[type=text]#reply:focus {
+    width: 90%;
+  }
+
+  input[type=text]#edit_del:focus {
+    width: 95%;
+  }
+
+  #name_review {
+    max-width:1150px;
+  }
+
+  #mobile {
+    display:none;
+  }
+
+  .colstar1 {
+    width:40%;
+  }
+
+  .colstar2 {
+    width:60%;
+  }
+
+  #star_cheer {
+    font-size: 30px;
+  }
+
+}
+
+.row > div[class*='col-'] {
+  display: flex;
+  flex:1 0 auto;
+}
+
+.scrollable-menu {
+    height: auto;
+    max-height: 145px;
+    overflow-x: hidden;
+}
+
+#col1 {
+  margin-top: 10px;
+}
+
+#col2 {
+  padding: 15px;
+  border-style: solid;
+  border-width: 2px;
+  overflow-y: auto;
+  transition: 0.5s ease-in-out;
+}
+
+#col2[class~="dark"] {
+  border-color: black; 
+}
+
+#col2[class~="dark"] {
+  border-color: white; 
+}
+
+.card-text {
+  transition: 0.5s ease-in-out;
+}
+
+.card-text[class~="light"] {
+  color: black;
+}
+
+.card-text[class~="dark"] {
+  color: white;
+}
+
+h1, h2, label, hr, p, #sub {
+  transition: 0.5s ease-in-out;
+}
+
+#sub[class~="light"] {
+  border-right: 3px solid black;
+}
+
+#sub[class~="dark"] {
+  border-right: 3px solid white;
+}
+
+h1[class~="light"] {
+  color: black;
+}
+
+h1[class~="dark"] {
+  color: white;
+}
+
+h2[class~="light"] {
+  color: black;
+}
+
+h2[class~="dark"] {
+  color: white;
+}
+
+h5[class~="light"] {
+  color: black;
+}
+
+h5[class~="dark"] {
+  color: white;
+}
+
+hr[class~="light"] {
+  background-color: rgb(210, 210, 210);
+}
+
+hr[class~="dark"] {
+  background-color: white;
+}
+
+p[class~="light"] {
+  color: black;
+}
+
+p[class~="dark"] {
+  color: white;
+}
+
+label[class~="light"] {
+  color: black;
+}
+
+label[class~="dark"] {
+  color: white;
+}
+
+.dropdown-menu[class~="light"] {
+  background-color:  rgb(250, 250, 250);
+}
+
+.dropdown-menu[class~="dark"] {
+  background-color: rgb(50, 50, 50);
+}
+
+.dropdown-item[class~="light"]:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.dropdown-item[class~="dark"]:hover {
+  background-color: rgb(200, 200, 200);
+}
+
+.modal-content[class~="light"] {
+  background-color:  rgb(240, 240, 240);
+}
+
+.modal-content[class~="dark"] {
+  background-color: rgb(50, 50, 50);
+}
+
+angular-editor[class~="light"] {
+  color:black;
+  background-color:white;
+}
+
+angular-editor[class~="dark"] {
+  color: white;
+  background-color:rgb(70,70,70);
+}
+
+.header {
+  transition: 0.5s ease-in-out;
+}
+
+.header[class~="light"] {
+  background-color:  rgb(250, 250, 250);
+}
+
+.header[class~="dark"] {
+  background-color: rgb(60, 60, 60);
+}
+
+.card-footer {
+  transition: 0.5s ease-in-out;
+}
+
+.card-footer[class~="light"] {
+  background-color:  rgb(250, 250, 250);
+}
+
+.card-footer[class~="dark"] {
+  background-color: rgb(60, 60, 60);
+}
+
+.rating-list-none li {
+  color: #eee;
+  padding-top: 10px;
+  padding-left: 5px;
+}
+
+.rating-list-none #li.selected {
+  color: #ffd700;
+}
+
+.rating-list li {
+  color: rgba(0, 0, 0, 0);
+  padding-top: 10px;
+  padding-left: 5px;
+}
+
+.rating-list #li:hover,
+.rating-list #li:hover ~ #li, .rating-list #li.selected {
+  color: #ffd700;
+}
+
+.rating-list, .rating-list-none {
+  display: inline-block;
+  list-style: none;
+}
+
+#not_found {
+  padding: 10px;
+  font-size: 20px;
+  font-family: monospace;
+  transition: 0.5s ease-in-out;
+}
+
+#not_found[class~="light"] {
+  color: black;
+}
+
+#not_found[class~="dark"] {
+  color: white;
+}
+
+#name_review {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#border_com {
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  transition: width 0.4s ease-in-out;
+}
+
+#comment {
+  outline:0;
+  background-color: transparent;
+  transition: 0.5s ease-in-out;
+  border: none;
+  border-bottom: 2px solid red;
+}
+
+#reply {
+  outline:0;
+  background-color: transparent;
+  transition: 0.5s ease-in-out;
+  border: none;
+  border-bottom: 2px solid yellow;
+}
+
+#edit_del {
+  outline:0;
+  background-color: transparent;
+  transition: 0.5s ease-in-out;
+  border: none;
+  border-bottom: 2px solid darkred;
+}
+
+input[type=text]#reply {
+  width: 60px;
+}
+
+input[type=text]#comment {
+  width: 90px;
+}
+
+input[type=text]#edit_del {
+  width: 50px;
+}
+
+#comment[class~="light"] {
+  background-color: white;
+  color: black;
+}
+
+#comment[class~="dark"] {
+  background-color: rgb(30, 30, 30);
+  color: white;
+}
+
+#com[class~="light"] {
+  color: black;
+}
+
+#com[class~="dark"] {
+  color: white;
+}
+
+#edit_com {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  transition: 0.5s ease-in-out;
+}
+
+#edit_com[class~="light"] {
+  background-color: rgb(250, 250, 250);
+}
+
+#edit_com[class~="dark"] {
+  background-color: rgb(40, 40, 40);
+}
+
+@keyframes flickerAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0.5; }
+  100% { opacity:1; }
+}
+@-o-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0.5; }
+  100% { opacity:1; }
+}
+@-moz-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0.5; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0.5; }
+  100% { opacity:1; }
+}
+.fade_com {
+   -webkit-animation: flickerAnimation 4s infinite;
+   -moz-animation: flickerAnimation 4s infinite;
+   -o-animation: flickerAnimation 4s infinite;
+    animation: flickerAnimation 4s infinite;
+}
+
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { 
+  transform: scale(2);
+}
+
+input[class~="light"] {
+  color: black;
+  background-color: #eee;
+}
+
+input[class~="dark"] {
+  color: white;
+  background-color: #444;
+}
+
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border-radius: 5px;
+  z-index: 9;
+}
+
+.form-container {
+  width: 350px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+#his_card[class~="light"] {
+  background-color:  rgb(240, 240, 240);
+}
+
+#his_card[class~="dark"] {
+  background-color: rgb(50, 50, 50);
+}
+
+input[class~="light"]:-webkit-autofill,
+input[class~="light"]:-webkit-autofill:hover, 
+input[class~="light"]:-webkit-autofill:focus {
+  -webkit-text-fill-color: black;
+  box-shadow: 0 0 0px 1000px white inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input[class~="dark"]:-webkit-autofill,
+input[class~="dark"]:-webkit-autofill:hover, 
+input[class~="dark"]:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  box-shadow: 0 0 0px 1000px rgb(30, 30, 30) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+#coll {
+  margin-top:5px;
+}
+
+.fa-star {
+  transition: 0.3s ease-in-out;
+}
+
+#half-star {
+  background-color: rgba(0, 0, 0, 0);
+  transition: 0.3s ease-in-out;
+}
+
+.fa-star[class~="light"] {
+  -webkit-text-stroke: 1.5px black;
+}
+
+.fa-star[class~="dark"] {
+  -webkit-text-stroke: 1.5px white;
+}
+
+#half-star[class~="light"] {
+  -webkit-text-stroke: 1.5px black;
+}
+
+#half-star[class~="dark"] {
+  -webkit-text-stroke: 1.5px white;
+}

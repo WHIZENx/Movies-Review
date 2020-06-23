@@ -1,0 +1,127 @@
+img {
+  transition: 0.5s ease-in-out;
+  transition-duration: 0.5s;
+  transition-property: transform;
+  cursor: pointer;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+}
+
+img[class~="light"] {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  content: url(https://c7.uihere.com/icons/597/276/20/theme-light-dark-2d1c50f846de60123303313fd538e559.png);
+}
+
+img[class~="dark"] {
+  content: url("https://sv1.picz.in.th/images/2020/02/24/xAygoz.png");
+}
+
+a {
+  text-align:center;
+  transition: 0.5s ease-in-out;
+}
+
+label {
+  transition: 0.5s ease-in-out;
+}
+
+.dropdown-menu {
+  transition: 0.5s ease-in-out;
+}
+
+.dropdown-menu[class~="dark"] {
+  color: black;
+  background-color: rgb(60, 60, 60);
+}
+
+.dropdown-menu[class~="light"] {
+  color: white;
+  background-color: rgb(250, 250, 250);
+}
+
+label[class~="light"] {
+  color: black;
+}
+
+label[class~="light"] {
+  color: black;
+}
+
+label[class~="dark"] {
+  color: white;
+}
+
+.dropdown-item[class~="light"]:hover {
+  background-color: rgb(200, 200, 200);
+}
+
+.dropdown-item[class~="dark"]:hover {
+  background-color: black;
+}
+
+b[class~="light"] {
+  color: black;
+}
+
+b[class~="dark"] {
+  color: white;
+}
+
+b[class~="light"] {
+  color: black;
+}
+
+b[class~="dark"] {
+  color: white;
+}
+
+nav {
+  transition: 0.5s ease-in-out;
+}
+
+.icon-bar {
+	width: 22px; 
+	height: 2px;
+	background-color: rgb(255, 50, 0);
+	display: block;
+	transition: all 0.2s;
+	margin-top: 4px;
+}
+ 
+.navbar-toggler {
+  outline: none;
+  border: none;
+  background: transparent !important;
+}
+
+.navbar-toggler .top-bar {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+ 
+.navbar-toggler .middle-bar {
+  opacity: 0;
+}
+ 
+.navbar-toggler .bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+ 
+.navbar-toggler.collapsed .top-bar {
+  transform: rotate(0);
+}
+ 
+.navbar-toggler.collapsed .middle-bar {
+  opacity: 1;
+}
+ 
+.navbar-toggler.collapsed .bottom-bar {
+  transform: rotate(0);
+}
+
+.navbar[class~="navbar-dark"] {
+  background-color:black;
+}

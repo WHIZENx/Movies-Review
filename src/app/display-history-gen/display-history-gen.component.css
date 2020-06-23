@@ -1,0 +1,35 @@
+.row > div[class*='col-'] {
+  display: flex;
+  flex:1 0 auto;
+}
+
+.th_his {
+  overflow-x: auto;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding:10px;
+  transition: 0.5s ease-in-out;
+}
+
+.th_his[class~="light"] {
+  color:black;
+  background-color: rgb(250, 250, 250);
+}
+
+.th_his[class~="dark"] {
+  color:white;
+  background-color: rgb(40, 40, 40);
+}
+
+#time_his {
+  transition: 0.5s ease-in-out;
+}
+
+#time_his[class~="light"] {
+  color:white;
+}
+
+#time_his[class~="dark"] {
+  color:  black;
+}

@@ -1,0 +1,20 @@
+<div class='d-flex align-items-center th_his {{str_dark}}' id="card">
+  <div class="card-group text-danger">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-16" style="padding-right:15px;">
+          <b>Genre:</b>
+          <div *ngFor="let i of history.old_genre">
+            <div class="card text-info" style="padding-left:10px;padding-right:10px;margin-left:10px;">
+              {{ i }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div align="right" id="card">
+  <small *ngIf="isLangThai" id="time_his" class={{str_dark}} style="background-color:#ebaaff;padding:5px;"><b>{{history.date.seconds*1000 | timeAgoThai}}</b></small>
+  <small *ngIf="!isLangThai" id="time_his" class={{str_dark}} style="background-color:#ebaaff;padding:5px;"><b>{{history.date.seconds*1000 | timeAgo}}</b></small>
+</div>

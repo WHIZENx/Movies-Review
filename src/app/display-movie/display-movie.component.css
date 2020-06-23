@@ -1,0 +1,383 @@
+/* Iphone 5/SE */
+@media (max-width: 360px) {
+
+  .another {
+    display:none;
+  }
+
+  #less_w {
+    display:none;
+  }
+
+  img {
+    width:100%;
+    height:220px;
+  }
+
+  small {
+    font-size:50%;
+  }
+
+  #text_name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card {
+    height:265px;
+  }
+}
+
+/* Iphone 6/7/8 */
+@media (min-width: 361px) and (max-width: 375px) {
+
+  .another {
+    display:none;
+  }
+
+  #more_w {
+    display:none;
+  }
+
+  img {
+    width:100%;
+    height:240px;
+  }
+
+  small {
+    font-size:50%;
+  }
+
+  #text_name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card {
+    height:285px;
+  }
+}
+
+/* Iphone 6/7/8 Pro */
+@media (min-width: 376px) and (max-width: 415px) {
+
+  .another {
+    display:none;
+  }
+
+  #more_w {
+    display:none;
+  }
+
+  img {
+    width:100%;
+    height:260px;
+  }
+
+  small {
+    font-size:55%;
+  }
+
+  #text_name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+  }
+
+  .card {
+    height:305px;
+  }
+
+}
+
+/* Iphone 5/SE Landscape */
+@media (min-width: 416.1px) and (max-width: 598.8px) {
+
+  .mobile {
+    display:none;
+  }
+
+  #more_w {
+    display:none;
+  }
+  
+  img {
+    width:100%;
+    height:310px;
+  }
+
+  small {
+    font-size:60%;
+  }
+
+  .card {
+    height:355px;
+  }
+
+  #des_text {
+    overflow: hidden;
+    height: 0;
+    transition: .35s ease;
+  }
+
+}
+
+/* Iphone 6/7/8 and Iphone 6/7/8 Pro Landscape */
+@media (min-width: 599px) and (max-width: 767.8px) {
+
+  .mobile {
+    display:none;
+  }
+
+  #more_w {
+    display:none;
+  }
+  
+  img {
+    width:100%;
+    height:370px;
+  }
+
+  small {
+    font-size:60%;
+  }
+
+  .card {
+    height:415px;
+  }
+
+  #des_text {
+    overflow: hidden;
+    height: 0;
+    transition: .35s ease;
+  }
+
+}
+/* Ipad */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+  .mobile {
+    display:none;
+  }
+
+  #more_w {
+    display:none;
+  }
+  
+  img {
+    width: 100%;
+    height:320px;
+  }
+
+  small {
+    font-size:60%;
+  }
+
+  .card {
+    height:365px;
+  }
+
+  #des_text {
+    overflow: hidden;
+    height: 0;
+    transition: .35s ease;
+  }
+
+}
+/* Ipad Pro */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+  .mobile {
+    display:none;
+  }
+
+  #more_w {
+    display:none;
+  }
+  
+  img {
+    width: 100%;
+    height:450px;
+  }
+
+  small {
+    font-size:65%;
+  }
+
+  .card {
+    height:495px;
+  }
+
+  #des_text {
+    overflow: hidden;
+    height: 0;
+    transition: .35s ease;
+  }
+}
+/* 100% */
+@media (min-width: 1200px) and (max-width: 1919.98px) {
+
+  .mobile {
+    display:none;
+  }
+
+  #more_w {
+    display:none;
+  }
+ 
+  img {
+    width: 100%;
+    height:520px;
+  }
+
+  small {
+    font-size:70%;
+  }
+
+  #des_text {
+    overflow: hidden;
+    height: 0;
+    transition: .35s ease;
+  }
+
+  .card {
+    height:565px;
+  }
+
+}
+
+/* 80% */
+@media (min-width: 1920px) {
+
+  .mobile {
+    display:none;
+  }
+
+  #more_w {
+    display:none;
+  }
+
+  img {
+    width: 100%;
+    height:530px;
+  }
+
+  small {
+    font-size:80%;
+  }
+
+  .card {
+    height:575px;
+  }
+
+  #des_text {
+    overflow: hidden;
+    height: 0;
+    transition: .35s ease;
+  }
+}
+
+.card {
+  cursor: pointer;
+}
+
+.card-header {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  font-weight: bold;
+}
+
+.card-subtitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+h5 {
+  font-weight: bold;
+}
+
+h5[class~="light"] {
+  color: black;
+}
+
+h5[class~="dark"] {
+  color: white;
+}
+
+p[class~="light"] {
+  color: black;
+}
+
+p[class~="dark"] {
+  color: white;
+}
+
+.card, .card-header, .card-subtitle {
+  transition: 0.5s ease-in-out;
+}
+
+.card[class~="light"] {
+  background-color: rgb(50, 50, 50);
+}
+
+.card[class~="dark"] {
+  background-color: white;
+}
+
+#text_name {
+  font-weight: bold;
+  color:white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#card:hover #des_text {
+  height: 40px;
+}
+
+#bg-card {
+  background: linear-gradient(1turn, rgba(0,0,0,0.9), rgba(50,50,50,0.9));
+}
+
+small.card-subtitle[class~="light"] {
+  color: rgb(100, 100, 100);
+}
+
+small.card-subtitle[class~="dark"] {
+  color: rgb(200, 200, 200);
+}
+
+.card-header[class~="light"] {
+  color: black;
+  background-color:  rgb(240, 240, 240);
+}
+
+.card-header[class~="dark"] {
+  color: white;
+  background-color: rgb(50, 50, 50)
+}
+
+.movie {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.card:hover {
+  transition: 0.3s ease-in-out;
+}
+
+.card[class~="light"]:hover {
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 1.0);
+}
+
+.card[class~="dark"]:hover {
+  box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 1.0);
+}

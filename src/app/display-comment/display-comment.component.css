@@ -1,0 +1,343 @@
+/* Iphone 5/SE */
+@media (max-width: 350px) {
+  #photo {
+    width: 30px;
+    height: 30px;
+  }
+
+  #txt_com {
+    width:80%;
+  }
+
+  #card {
+    width:92%;
+  }
+
+  input[type=text]#edit_del:focus {
+    width: 65%;
+  }
+}
+
+/* Iphone 6/7/8 */
+@media (min-width: 351px) and (max-width: 375px) {
+  #photo {
+    width: 40px;
+    height: 40px;
+  }
+
+  #txt_com {
+    width:80%;
+  }
+
+  #card {
+    width:94%;
+  }
+
+  input[type=text]#edit_del:focus {
+    width: 75%;
+  }
+}
+/* Iphone 6/7/8 Pro */
+@media (min-width: 376px) and (max-width: 415px) {
+  #photo {
+    width: 40px;
+    height: 40px;
+  }
+
+  #txt_com {
+    width:83%;
+  }
+
+  #card {
+    width:94.8%;
+  }
+
+  input[type=text]#edit_del:focus {
+    width: 78%;
+  }
+
+}
+
+/* Iphone 5/SE Landscape */
+@media (min-width: 416px) and (max-width: 568px) {
+  #photo {
+    width: 45px;
+    height: 45px;
+  }
+
+  #txt_com {
+    width:89%;
+  }
+
+  #card {
+    width:96.5%;
+  }
+
+  input[type=text]#edit_del:focus {
+    width: 86%;
+  }
+}
+
+/* Iphone 6/7/8 and Iphone 6/7/8 Pro Landscape */
+@media (min-width: 569px) and (max-width: 767.8px) {
+  #photo {
+    width: 45px;
+    height: 45px;
+  }
+
+  #txt_com {
+    width:89%;
+  }
+
+  #card {
+    width:97.1%;
+  }
+
+  input[type=text]#edit_del:focus {
+    width: 87%;
+  }
+}
+/* Ipad */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  #photo {
+    width: 45px;
+    height: 45px;
+  }
+
+  #txt_com {
+    width:87%;
+  }
+
+  #card {
+    width:96.3%;
+  }
+
+  input[type=text]#edit_del:focus {
+    width: 84%;
+  }
+}
+/* Ipad Pro */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  #photo {
+    width: 45px;
+    height: 45px;
+  }
+
+  #txt_com {
+    width:90%;
+  }
+
+  #card {
+    width:97.4%;
+  }
+
+  input[type=text]#edit_del:focus {
+    width: 88%;
+  }
+}
+/* 100% */
+@media (min-width: 1200px) and (max-width: 1919.98px) {
+
+  #photo {
+    width: 50px;
+    height: 50px;
+  }
+
+  #txt_com {
+    width:94%;
+  }
+
+  #card {
+    width:98.2%;
+  }
+
+  input[type=text]#edit_del:focus {
+    width: 92%;
+  }
+
+}
+/* 80% */
+@media (min-width: 1920px) {
+
+  #photo {
+    width: 50px;
+    height: 50px;
+  }
+
+  #txt_com {
+    width:95%;
+  }
+
+  #card {
+    width:98.7%;
+  }
+
+  input[type=text]#edit_del:focus {
+    width: 95%;
+  }
+
+}
+
+.th_com {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding:10px;
+  transition: 0.5s ease-in-out;
+}
+
+.th_com[class~="light"] {
+  color:black;
+  background-color: rgb(230, 230, 230);
+}
+
+.th_com[class~="dark"] {
+  color:white;
+  background-color: rgb(20, 20, 20);
+}
+
+#time_com {
+  transition: 0.5s ease-in-out;
+}
+
+#time_com[class~="light"] {
+  color:white;
+}
+
+#time_com[class~="dark"] {
+  color:black;
+}
+
+#point {
+  color:  rgb(80, 80, 80);
+  transition: 0.5s ease-in-out;
+  border-bottom-left-radius: 5px;
+}
+
+#point[class~="light"] {
+  background-color: rgb(240, 240, 240);
+}
+
+#point[class~="dark"] {
+  background-color: rgb(60, 60, 60);
+}
+
+#num_point {
+  transition: 0.5s ease-in-out;
+}
+
+#num_point[class~="light"] {
+  color: black;
+}
+
+#num_point[class~="dark"] {
+  color: white;
+}
+
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { 
+  transform: scale(2);
+}
+
+#like[class~="true"] {
+  color: rgb(50,205,50);
+}
+
+
+#dislike[class~="true"] {
+  color: rgb(220,20,60);
+}
+
+h5[class~="light"] {
+  color: black;
+}
+
+h5[class~="dark"] {
+  color: white;
+}
+
+#edit_del {
+  outline:0;
+  background-color: transparent;
+  transition: 0.5s ease-in-out;
+  border: none;
+  border-bottom: 2px solid darkred;
+}
+
+input[type=text]#edit_del {
+  width: 50px;
+}
+
+#re[class~="light"] {
+  color: black;
+}
+
+#re[class~="dark"] {
+  color: white;
+}
+
+#edit_re {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  transition: 0.5s ease-in-out;
+}
+
+#edit_re[class~="light"] {
+  background-color: rgb(250, 250, 250);
+}
+
+#edit_re[class~="dark"] {
+  background-color: rgb(40, 40, 40);
+}
+
+@keyframes flickerAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0.5; }
+  100% { opacity:1; }
+}
+@-o-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0.5; }
+  100% { opacity:1; }
+}
+@-moz-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0.5; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0.5; }
+  100% { opacity:1; }
+}
+.fade_com {
+   -webkit-animation: flickerAnimation 4s infinite;
+   -moz-animation: flickerAnimation 4s infinite;
+   -o-animation: flickerAnimation 4s infinite;
+    animation: flickerAnimation 4s infinite;
+}
+
+input[class~="light"] {
+  color: black;
+  background-color: #eee;
+}
+
+input[class~="dark"] {
+  color: white;
+  background-color: #444;
+}
+
+input[class~="light"]:-webkit-autofill,
+input[class~="light"]:-webkit-autofill:hover, 
+input[class~="light"]:-webkit-autofill:focus {
+  -webkit-text-fill-color: black;
+  box-shadow: 0 0 0px 1000px white inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input[class~="dark"]:-webkit-autofill,
+input[class~="dark"]:-webkit-autofill:hover, 
+input[class~="dark"]:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  box-shadow: 0 0 0px 1000px rgb(30, 30, 30) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}

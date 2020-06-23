@@ -1,0 +1,171 @@
+<div class={{str_dark}} style="margin-top:20px;margin-bottom:10px;overflow-y:auto;height:80%">
+	<h2 style="text-align: center; color: blue"><i class="fa fa-registered"></i> {{register_lang}}</h2>
+	<form [formGroup]="registerForm" (ngSubmit)="register()" style="margin-top:20px;">
+    <h2 class={{str_dark}}>{{op_lang}}</h2>
+    <form class="form-inline">
+      <div class="form-check" style="margin-right:10px;">
+        <input class="form-check-input" type="radio" name="Radios" id="upload" value="option1" checked (click)="changeOption()">
+        <label class="form-check-label {{str_dark}}" for="upload">
+          {{c_op_lang}}
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="Radios" id="linkurl" value="option2" (click)="changeOption()">
+        <label class="form-check-label {{str_dark}}" for="linkurl">
+          {{img_lang}}
+        </label>
+      </div>
+    </form>
+    <div *ngIf="choose_op == 1">
+      <div class="form-group" style="margin-top:15px;">
+        <div class="custom-file">
+         <button type="button" class="btn btn-danger btn-md" (click)="fileInput.click()">{{u_lang}}</button>
+        </div>
+        <div class="avatar-upload">
+          <div class="avatar-edit">
+            <input type='file' id="imageUpload" accept="image/*" #fileInput (change)="uploadFile($event)" required/>
+            <div *ngIf="submitted" class="invalid-feedback">
+              {{r_name_lang}}
+            </div>
+          </div>
+          <div class="avatar-preview mx-auto" style="margin-top:15px;">
+            <div id="imagePreview" [style.backgroundImage]="'url('+ imageUrl +')'">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group" *ngIf="choose_op == 2">
+      <img src={{link_str}} alt="" style="width:250px;height:250px;border-radius:50%;display:block;margin:auto;">
+			<label for="link" class={{str_dark}}>{{img_lang}}</label>
+			<input #link type="url" formControlName="link" class="form-control {{str_dark}}" placeholder={{e_img_lang}} [ngModel]="get_link(link.value)"/>
+		</div>
+		<div class="form-group">
+			<label for="username" class={{str_dark}}>{{name_lang}}</label>
+			<input type="text" formControlName="username" class="form-control {{str_dark}}" [ngClass]="{ 'is-invalid': f.username.errors }" placeholder={{e_name_lang}} />
+			<div *ngIf="f.username.errors" class="invalid-feedback">
+				<div *ngIf="f.username.errors.required">{{r_name_lang}}</div>
+				<div *ngIf="f.username.errors.pattern">{{r2_name_lang}}</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="email" class={{str_dark}}>{{email_lang}}</label>
+			<input type="email" formControlName="email" class="form-control {{str_dark}}" [ngClass]="{ 'is-invalid': f.email.errors }" placeholder={{e_email_lang}} />
+			<div *ngIf="f.email.errors" class="invalid-feedback">
+				<div *ngIf="f.email.errors.required">{{r_email_lang}}</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="password" class={{str_dark}}>{{pass_lang}}</label>
+			<input type="password" formControlName="password" class="form-control {{str_dark}}" [ngClass]="{ 'is-invalid': f.password.errors }" placeholder={{e_pass_lang}} />
+			<div *ngIf="f.password.errors" class="invalid-feedback">
+				<div *ngIf="f.password.errors.required">{{r_pass_lang}}</div>
+				<div *ngIf="f.password.errors.minlength">{{r2_pass_lang}}!</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="password2" class={{str_dark}}>{{pass2_lang}}</label>
+			<input type="password" formControlName="password2" class="form-control {{str_dark}}" [ngClass]="{ 'is-invalid': f.password2.errors }" placeholder={{e_pass2_lang}}/>
+			<div *ngIf="f.password2.errors" class="invalid-feedback">
+				<div *ngIf="f.password2.errors.required">{{r_pass2_lang}}</div>
+			</div>
+		</div>
+    <div class="form-group">
+      <label class={{str_dark}}>{{level_select_lang}}</label>
+      <mat-tab-group mat-stretch-tabs (selectedTabChange)=changeLevel($event) style="height:48px;background-color:rgb(230,230,230);border-top-left-radius:5px;border-top-right-radius:5px;">
+        <mat-tab label> 
+          <ng-template mat-tab-label>
+            <span style="color:black;">Normal</span>
+          </ng-template>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <i style="margin-right:10px;color:#DAA520;" class="fas fa-certificate"></i>
+            <span style="color:#DAA520;">Gold</span>
+          </ng-template>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <i style="margin-right:10px;color:#2ebcef;" class="fas fa-gem"></i>
+            <span style="color:#2ebcef;">Premium</span>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+      <mat-card>
+        <mat-card-content>
+          <h2 class="{{level}}">{{level}} Member</h2>
+          <hr>
+          {{support_lang}}: <i class="fab fa-cc-mastercard" style="margin-right:5px;"></i><i class="fab fa-cc-visa" style="margin-right:5px;"></i><i class="fab fa-cc-paypal" style="margin-right:5px;"></i><i class="fas fa-credit-card" style="margin-right:5px;"></i><i class="fab fa-google-wallet"></i>
+          <div *ngIf="level == 'Normal'">
+            {{price_lang}}: <label style="color:red;"> Free (ฟรี)</label><br>
+            {{attribute_lang}}:
+            <ul>
+              <li>
+                <i class="fa fa-check"></i> Can comment&reply review!
+              </li>
+              <li>
+                <i class="fa fa-times"></i> Can't cheer rating review!
+              </li>
+              <li>
+                <i class="fa fa-times"></i> Can't review movie!
+              </li>
+            </ul>
+          </div>
+          <div *ngIf="level == 'Gold'">
+            {{price_lang}}: <label style="color:red;"> $8.99 (ประมาณ 300 บาท)</label><br>
+            {{attribute_lang}}:
+            <ul>
+              <li>
+                <i class="fa fa-check"></i> Can comment&reply review!
+              </li>
+              <li>
+                <i class="fa fa-check"></i> Can cheer rating review!
+              </li>
+              <li>
+                <i class="fa fa-times"></i> Can't review movie!
+              </li>
+              <li>
+                <i style="margin-right:5px;color:#DAA520;" class="fas fa-certificate"></i>Special Symbol!
+              </li>
+            </ul>
+          </div>
+          <div *ngIf="level == 'Premium'">
+            {{price_lang}}: <label style="color:red;"> $14.99 (ประมาณ 500 บาท)</label><br>
+            {{attribute_lang}}:
+            <ul>
+              <li>
+                <i class="fa fa-check"></i> Can comment&reply review!
+              </li>
+              <li>
+                <i class="fa fa-check"></i> Can cheer rating review!
+              </li>
+              <li>
+                <i class="fa fa-check"></i> Can review movie!
+              </li>
+              <li>
+                <i style="margin-right:5px;color:#2ebcef;" class="fas fa-gem"></i>Special Symbol!
+              </li>
+            </ul>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div style="margin-bottom:30px;">
+      <input style="display:none" id="cbx" type="checkbox" (click)="buyvip()">
+      <label class="cbx" for="cbx"></label>
+      <a class="lbl {{str_dark}}" for="cbx">{{vip1_lang}} <i class="fas fa-crown" style="color:gold;-webkit-text-stroke:1px black;"></i> <i style="color:red;"> ({{vip2_lang}} <i class="fab fa-youtube"> Youtube</i>)</i> {{vip3_lang}}</a>
+    </div>
+    <div *ngIf="submitted && choose_op == 1">
+      <div *ngIf="percentage | async as pct">
+        <progress [value]="pct" max="100"></progress>
+        <label class={{str_dark}}>{{ pct | number }}%</label>
+      </div>
+      <div *ngIf="snapshot | async as snap">
+        <div *ngIf="downloadURL as url">
+        </div> 
+      </div>
+    </div>
+    <button *ngIf="!submitted" type="submit" class="btn btn-primary"><i class="fa fa-check"></i> {{register_lang}}</button>
+    <mat-progress-spinner *ngIf="submitted" color="warn" mode="indeterminate" diameter="40" style="margin-left:20px;"></mat-progress-spinner>
+	</form>
+</div>
