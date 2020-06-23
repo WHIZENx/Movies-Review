@@ -1,3 +1,3 @@
-# Movies Review by WHIZENx
+# Movies Review Web application by WHIZENx
 
 [View website 🎥](https://moviereview-cmu.web.app/)
