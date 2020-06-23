@@ -1,3 +1,3 @@
-# moviesreview
+# Movies Review by WHIZENx
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/moviesreview)
+[View website 🎥](https://moviereview-cmu.web.app/)
