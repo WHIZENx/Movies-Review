@@ -4,7 +4,7 @@
 
 > ### *204333 [Internet Application development] Project Chiang Mai University Computer Science 2019*
 
-Movies Review เป็นโปรเจคนักศึกษามหาวิทยาลัยเชียงใหม่ชั้นปีที่ 2 ปีการศึกษา 2561 ทำขึ้นมาใน รายวิชา 204333 [Internet Application development]
+Movies Review เป็นโปรเจคนักศึกษามหาวิทยาลัยเชียงใหม่ชั้นปีที่ 2 ปีการศึกษา 2562 ทำขึ้นมาใน รายวิชา 204333 [Internet Application development]
 เป็นเว็บรีวิวหนัง มีการให้คะแนนรีวิวและสามารถแสดงความคิดเห็น, กดชอบ/ไม่ชอบ หรือตอบกลับได้ ทั้งนี้ยังมีระบบ VIP และ ระดับผู้ใช้ โดยมีดังนี้
 - Normal สามารถ comment ได้
 - Gold สามารถให้คะแนนรีวิวหนังได้
